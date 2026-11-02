@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1428" role="img" aria-label="Pawn">
+<g fill="none" stroke="#1b2430" stroke-width="26" stroke-linejoin="round" stroke-linecap="round">
+<circle cx="360" cy="300" r="150"/>
+<path d="M258 470c58 34 146 34 204 0"/>
+<path d="M286 546c24 66 68 120 122 158-64 44-104 112-104 190 0 40 10 78 28 110"/>
+<path d="M434 546c-24 66-68 120-122 158 64 44 104 112 104 190 0 40-10 78-28 110"/>
+<path d="M214 1004h292l34 118H180z"/>
+<path d="M180 1122h360l28 104H152z"/>
+<path d="M152 1226h416l24 96H128z"/>
+</g>
+</svg>

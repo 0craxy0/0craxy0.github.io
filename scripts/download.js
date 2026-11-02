@@ -74,7 +74,7 @@ export class CDownload {
             const Data = Result.Data;
             const Lifetime = Date.parse( Data?.ExpiresAt ) - Date.parse( Result.Meta?.ServerTime );
 
-            if ( Data?.FileName !== 'Lucid.exe' || typeof Data.Url !== 'string' || !/^\/download\/[a-f0-9]{64}\/Lucid\.exe\?verify=[A-Za-z0-9._~-]+$/.test( Data.Url ) || !Number.isFinite( Lifetime ) || Lifetime <= 0 || Lifetime > 600000 )
+            if ( Data?.FileName !== 'aether.txt' || typeof Data.Url !== 'string' || !/^\/download\/[a-f0-9]{64}\/Lucid\.exe\?verify=[A-Za-z0-9._~-]+$/.test( Data.Url ) || !Number.isFinite( Lifetime ) || Lifetime <= 0 || Lifetime > 600000 )
                 throw new Error( 'The download could not be prepared. Please try again.' );
 
             return { Url: Data.Url, ExpiresAt: Started + Lifetime };
@@ -112,10 +112,10 @@ export class CDownload {
         const Result = await Response.json().catch( () => null );
         if ( !Response.ok || !Result?.Data ) {
             const Messages = {
-                KeyRejected: 'That key cannot download Lucid. Check it and try again.',
-                KeyInvalid: 'Enter a key like LUCID-XXXXX-XXXXX-XXXXX.',
+                KeyRejected: 'That line could not be prepared. Check it and try again.',
+                KeyInvalid: 'Paste the full loader line.',
                 CaptchaFailed: 'Verification failed. Please try again.',
-                CsrfFailed: 'Open getlucid.gg and try again.',
+                CsrfFailed: 'Reload the page and try again.',
                 RateLimited: 'Too many attempts. Please wait before trying again.',
                 DownloadUnavailable: 'Downloads are paused right now. Try again soon.'
             };

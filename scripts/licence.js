@@ -26,16 +26,17 @@ import { CDownload } from './download.js';
     const ReducedMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' );
     const FinePointer = window.matchMedia( '(hover: hover) and (pointer: fine)' );
     const AppleDevice = /Mac|iPhone|iPad/.test( navigator.userAgentData?.platform || navigator.platform || '' );
-    const KeyPrefix = 'LUCID';
-    const KeyTemplate = 'LUCID-XXXXX-XXXXX-XXXXX';
+    const KeyPrefix = 'AETHER';
+    const KeyTemplate = 'AETHER-LOADER-LINE';
     const KeyLength = 15;
-    const KeyPattern = /^LUCID(?:-[A-Z0-9]{5}){3}$/;
+    // no key format: any loader line the user pastes is accepted
+    const KeyPattern = /^.{8,}$/;
     const Copy = {
         Incomplete: 'Enter all 15 characters of your key.',
         Rejected: 'That key could not be verified.',
         Shortcut: `Clipboard is blocked. Press ${AppleDevice ? 'Cmd' : 'Ctrl'}+V to paste.`,
         Touch: 'Clipboard is blocked. Long-press the field to paste.',
-        Starting: 'Your download is starting. Open Lucid.exe to continue.'
+        Starting: 'Loader copied. Paste it into your executor to start Aether.'
     };
 
     let Phase = 'idle';
@@ -176,7 +177,7 @@ import { CDownload } from './download.js';
         }
         const Anchor = document.createElement( 'a' );
         Anchor.href = DownloadDetails.Url;
-        Anchor.download = 'Lucid.exe';
+        Anchor.download = 'aether.txt';
         Anchor.rel = 'noopener noreferrer';
         Anchor.referrerPolicy = 'no-referrer';
         Anchor.hidden = true;

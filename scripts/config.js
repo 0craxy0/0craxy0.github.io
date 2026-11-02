@@ -1,5 +1,5 @@
 window.LucidConfig = {
     installerUrl: '',
     verifyUrl: '',
-    discordUrl: 'https://discord.gg/getlucid'
+    discordUrl: 'https://discord.gg/aether'
 };

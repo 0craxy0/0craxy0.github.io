@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 469" role="img" aria-label="Aether">
+  <defs>
+    <linearGradient id="Sigil" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9fd4ff"/>
+      <stop offset="0.5" stop-color="#4a91df"/>
+      <stop offset="1" stop-color="#245faa"/>
+    </linearGradient>
+  </defs>
+  <!-- mark: an open hexagonal ring, the loop between client and script -->
+  <g transform="translate(96 118)">
+    <path d="M84 4 L152 44 L152 124 L84 164 L16 124 L16 44 Z"
+          fill="none" stroke="url(#Sigil)" stroke-width="15" stroke-linejoin="round"/>
+    <path d="M84 52 L113 69 L113 103 L84 120 L55 103 L55 69 Z"
+          fill="none" stroke="#e6f3ff" stroke-width="9" stroke-linejoin="round" opacity="0.9"/>
+  </g>
+  <!-- AETHER -->
+  <g fill="#ffffff" font-family="Aspekta, Segoe UI, system-ui, sans-serif"
+     font-size="190" font-weight="650" letter-spacing="6" text-anchor="start">
+    <text x="200" y="312">AETHER</text>
+  </g>
+</svg>

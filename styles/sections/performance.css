@@ -8,8 +8,8 @@
     --CompareTime: 240ms;
 }
 
-.Performance [data-product="lucid"] {
-    --SeriesColor: var(--SeriesLucid);
+.Performance [data-product="aether"] {
+    --SeriesColor: var(--SeriesAether);
 }
 
 .Performance [data-product="volt"] {
@@ -151,7 +151,7 @@
 }
 
 .AreaStop {
-    stop-color: var(--AreaColor, var(--SeriesLucid));
+    stop-color: var(--AreaColor, var(--SeriesAether));
     transition: stop-color var(--DurationSlow) var(--EaseSmooth);
 }
 
@@ -324,7 +324,7 @@
 }
 
 .LoadList {
-    --LucidShare: 0.1875;
+    --AetherShare: 0.1875;
     display: grid;
     grid-auto-rows: var(--RowPitch);
 }
@@ -353,7 +353,7 @@
     transition: color var(--CompareTime) var(--EaseOut);
 }
 
-.LoadRow[data-product="lucid"] .LoadName,
+.LoadRow[data-product="aether"] .LoadName,
 .LoadRow[data-state="active"] .LoadName {
     color: var(--InkStrong);
 }
@@ -382,15 +382,15 @@
     transition: clip-path 1300ms var(--EaseOut) calc(var(--RowOrder, 0) * 90ms + 200ms);
 }
 
-.LoadRow[data-product="lucid"] .LoadBar {
-    background: var(--SeriesLucid);
+.LoadRow[data-product="aether"] .LoadBar {
+    background: var(--SeriesAether);
 }
 
 .LoadBar::after {
     content: "";
     display: block;
     height: 100%;
-    margin-inline-start: calc(var(--LucidShare) / var(--Share) * 100%);
+    margin-inline-start: calc(var(--AetherShare) / var(--Share) * 100%);
     background: var(--SurfaceBase);
     opacity: 0;
     transition: opacity var(--CompareTime) var(--EaseOut);
@@ -405,7 +405,7 @@
     z-index: 1;
     width: 2px;
     height: calc(var(--BarHeight) + 0.375rem);
-    margin-inline-start: calc(var(--LucidShare) * 100% - 1px);
+    margin-inline-start: calc(var(--AetherShare) * 100% - 1px);
     border-radius: 1px;
     background: var(--InkStrong);
     opacity: 0;
@@ -429,7 +429,7 @@
         color var(--CompareTime) var(--EaseOut);
 }
 
-.LoadRow[data-product="lucid"] .LoadValue {
+.LoadRow[data-product="aether"] .LoadValue {
     color: var(--AccentBright);
 }
 

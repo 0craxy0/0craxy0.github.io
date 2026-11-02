@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1421" role="img" aria-label="Rook">
+<g fill="none" stroke="#1b2430" stroke-width="26" stroke-linejoin="round" stroke-linecap="round">
+<path d="M204 230h66v86h60v-86h60v86h60v-86h66v190H204z"/>
+<path d="M232 420h256l16 300H216z"/>
+<path d="M216 720h288l22 240H194z"/>
+<path d="M194 960h332l30 130H164z"/>
+<path d="M164 1090h392l26 110H138z"/>
+<path d="M138 1200h444l24 108H114z"/>
+</g>
+</svg>

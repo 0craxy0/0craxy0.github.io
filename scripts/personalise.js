@@ -5,7 +5,7 @@
     }
 
     const themes = [
-        { slug: 'lucid', name: 'Lucid' },
+        { slug: 'aether', name: 'Aether' },
         { slug: 'midnight', name: 'Midnight' },
         { slug: 'paper', name: 'Paper' },
         { slug: 'graphite', name: 'Graphite' },
@@ -14,7 +14,7 @@
         { slug: 'obsidian', name: 'Obsidian' },
         { slug: 'sakura', name: 'Sakura' },
         { slug: 'fjord', name: 'Fjord' },
-        { slug: 'lucid-light', name: 'Lucid Light' },
+        { slug: 'aether-light', name: 'Aether Light' },
         { slug: 'moss', name: 'Moss' },
         { slug: 'rosewood', name: 'Rosewood' }
     ];

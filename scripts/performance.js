@@ -1,19 +1,19 @@
 (() => {
-    const lucid = window.Lucid;
+    const core = window.Lucid;
     const section = document.querySelector('.Performance');
 
-    if (!lucid || !section) {
+    if (!core || !section) {
         return;
     }
 
-    const { tween, easing, whenVisible, reducedMotion } = lucid;
+    const { tween, easing, whenVisible, reducedMotion } = core;
     const sampleCount = 61;
     const frameCeiling = 80;
     const loadCeiling = 32;
-    const legendOrder = ['lucid', 'volt', 'synapse', 'potassium'];
-    const paintOrder = ['volt', 'synapse', 'potassium', 'lucid'];
+    const legendOrder = ['aether', 'volt', 'synapse', 'potassium'];
+    const paintOrder = ['volt', 'synapse', 'potassium', 'aether'];
     const products = {
-        lucid: { name: 'Lucid', token: '--SeriesLucid', low: 60, high: 70, seed: 17 },
+        aether: { name: 'Aether', token: '--SeriesAether', low: 60, high: 70, seed: 17 },
         volt: { name: 'Volt', token: '--SeriesVolt', low: 2, high: 10, seed: 31 },
         synapse: { name: 'Synapse Z', token: '--SeriesSynapse', low: 12, high: 24, seed: 71 },
         potassium: { name: 'Potassium', token: '--SeriesPotassium', low: 16, high: 28, seed: 53 }
@@ -67,7 +67,7 @@
     }
 
     function seriesMarkup(key) {
-        const emphasis = key === 'lucid' ? 'selected' : 'rest';
+        const emphasis = key === 'aether' ? 'selected' : 'rest';
         return `<g class="ChartSeries" data-product="${key}" data-emphasis="${emphasis}"><path class="SeriesLine" pathLength="1"></path><text class="SeriesValue"></text></g>`;
     }
 
@@ -124,13 +124,13 @@
         const tooltipValues = new Map([...tooltipRows].map(([key, row]) => [key, row.querySelector('.TooltipValue')]));
         const pointer = { target: 0, current: 0, tooltip: 0, width: 0, frame: 0, time: 0, visible: false };
 
-        let selected = 'lucid';
+        let selected = 'aether';
         let mode = 'rest';
-        let areaValues = [...series.lucid];
+        let areaValues = [...series.aether];
         let areaMotion = null;
         let figureMotion = null;
-        let figureLow = products.lucid.low;
-        let figureHigh = products.lucid.high;
+        let figureLow = products.aether.low;
+        let figureHigh = products.aether.high;
 
         legendOrder.forEach((key, index) => groups.get(key).style.setProperty('--SeriesOrder', String(index)));
 
@@ -398,13 +398,13 @@
 
         card.addEventListener('pointerleave', event => {
             if (event.pointerType === 'mouse' && !legend.querySelector(':focus-visible')) {
-                select('lucid', 'rest');
+                select('aether', 'rest');
             }
         });
 
         document.addEventListener('pointerdown', event => {
             if (mode === 'focus' && !card.contains(event.target)) {
-                select('lucid', 'rest');
+                select('aether', 'rest');
             }
         });
 
@@ -421,7 +421,7 @@
 
         legend.addEventListener('focusout', event => {
             if (!legend.contains(event.relatedTarget) && !card.matches(':hover')) {
-                select('lucid', 'rest');
+                select('aether', 'rest');
             }
         });
 
@@ -440,8 +440,8 @@
         }
 
         whenVisible(valueNode, () => {
-            if (selected === 'lucid' && mode === 'rest') {
-                animateFigure(products.lucid.low, products.lucid.high, { duration: 1500, delay: 120, ease: easing.outQuint });
+            if (selected === 'aether' && mode === 'rest') {
+                animateFigure(products.aether.low, products.aether.high, { duration: 1500, delay: 120, ease: easing.outQuint });
             }
         }, { threshold: 1 });
 
@@ -453,10 +453,10 @@
     function setupLoading(card) {
         const list = card.querySelector('[data-load-list]');
         const rows = [...list.querySelectorAll('[data-seconds]')];
-        const lucidRow = rows.find(row => row.dataset.product === 'lucid');
-        const rivals = rows.filter(row => row !== lucidRow);
-        const lucidSeconds = Number(lucidRow.dataset.seconds);
-        const track = lucidRow.querySelector('.LoadTrack');
+        const aetherRow = rows.find(row => row.dataset.product === 'aether');
+        const rivals = rows.filter(row => row !== aetherRow);
+        const aetherSeconds = Number(aetherRow.dataset.seconds);
+        const track = aetherRow.querySelector('.LoadTrack');
         const headline = card.querySelector('[data-load-figure]');
         const headlineNumber = headline.querySelector('[data-figure-number]');
         const status = card.querySelector('[data-load-status]');
@@ -469,7 +469,7 @@
         let graceTimer = 0;
         let countMotion = null;
 
-        list.style.setProperty('--LucidShare', String(lucidSeconds / loadCeiling));
+        list.style.setProperty('--AetherShare', String(aetherSeconds / loadCeiling));
         rows.forEach((row, index) => {
             row.style.setProperty('--Share', String(Number(row.dataset.seconds) / loadCeiling));
             row.style.setProperty('--RowOrder', String(index));
@@ -479,12 +479,12 @@
         function comparison(row) {
             const name = row.querySelector('.LoadName').textContent;
             const seconds = Number(row.dataset.seconds);
-            return { name, seconds, faster: Math.round((1 - lucidSeconds / seconds) * 100) };
+            return { name, seconds, faster: Math.round((1 - aetherSeconds / seconds) * 100) };
         }
 
         function lineMarkup(row) {
             if (!row) {
-                return `<strong class="FigureValue">${lucidSeconds} seconds</strong><span class="SubjectName" data-product="lucid">${products.lucid.name}</span>`;
+                return `<strong class="FigureValue">${aetherSeconds} seconds</strong><span class="SubjectName" data-product="aether">${products.aether.name}</span>`;
             }
             const { name, faster } = comparison(row);
             return `<strong class="FigureValue">${faster}% faster</strong><span class="SubjectName" data-product="${row.dataset.product}">than ${name}</span>`;
@@ -520,7 +520,7 @@
                 return;
             }
             const { name, seconds, faster } = comparison(row);
-            status.textContent = `Lucid loads the script ${faster}% faster than ${name}, in ${lucidSeconds} seconds instead of ${seconds}.`;
+            status.textContent = `Aether loads the script ${faster}% faster than ${name}, in ${aetherSeconds} seconds instead of ${seconds}.`;
         }
 
         function activate(row) {
@@ -530,7 +530,7 @@
             activeRow = row;
             rows.forEach(item => {
                 let state = 'rest';
-                if (row && item !== lucidRow) {
+                if (row && item !== aetherRow) {
                     state = item === row ? 'active' : 'muted';
                 }
                 item.dataset.state = state;
@@ -601,13 +601,13 @@
         }
 
         function updateHint() {
-            hint.textContent = lucid.finePointer.matches ? 'Select a bar to compare it with Lucid' : 'Tap a bar to compare it with Lucid';
+            hint.textContent = core.finePointer.matches ? 'Select a bar to compare it with Aether' : 'Tap a bar to compare it with Aether';
         }
 
         measure();
         new ResizeObserver(measure).observe(track);
         updateHint();
-        lucid.finePointer.addEventListener('change', updateHint);
+        core.finePointer.addEventListener('change', updateHint);
 
         if (motionAllowed()) {
             readouts.forEach(({ node }) => {
@@ -625,7 +625,7 @@
                 delay: 120,
                 ease: easing.outQuint,
                 onUpdate: amount => {
-                    headlineNumber.textContent = String(Math.round(lucidSeconds * amount));
+                    headlineNumber.textContent = String(Math.round(aetherSeconds * amount));
                 }
             });
         }, { threshold: 1 });
