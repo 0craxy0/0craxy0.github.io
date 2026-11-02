@@ -26,14 +26,12 @@ import { CDownload } from './download.js';
     const ReducedMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' );
     const FinePointer = window.matchMedia( '(hover: hover) and (pointer: fine)' );
     const AppleDevice = /Mac|iPhone|iPad/.test( navigator.userAgentData?.platform || navigator.platform || '' );
-    const KeyPrefix = 'AETHER';
-    const KeyTemplate = 'AETHER-LOADER-LINE';
-    const KeyLength = 15;
+    const KeyTemplate = 'loadstring(game:HttpGet(...))()';
     // no key format: any loader line the user pastes is accepted
     const KeyPattern = /^.{8,}$/;
     const Copy = {
-        Incomplete: 'Enter all 15 characters of your key.',
-        Rejected: 'That key could not be verified.',
+        Incomplete: 'Paste the full loader line.',
+        Rejected: 'That line could not be prepared.',
         Shortcut: `Clipboard is blocked. Press ${AppleDevice ? 'Cmd' : 'Ctrl'}+V to paste.`,
         Touch: 'Clipboard is blocked. Long-press the field to paste.',
         Starting: 'Loader copied. Paste it into your executor to start Aether.'
@@ -54,23 +52,19 @@ import { CDownload } from './download.js';
         return getComputedStyle( document.documentElement ).getPropertyValue( Name ).trim( ) || Fallback;
     }
 
+    // A loader line is Lua source, not a product key: punctuation carries the
+    // meaning, and uppercasing or truncating it would produce something that
+    // cannot run. Only trim surrounding whitespace.
     function Significant( Text ) {
-        return String( Text ).toUpperCase( ).replace( /[^A-Z0-9]/g, '' );
+        return String( Text ).trim( );
     }
 
     function KeyBody( Text ) {
-        const Characters = Significant( Text );
-        if ( KeyPrefix.startsWith( Characters ) )
-            return '';
-        const Body = Characters.startsWith( KeyPrefix ) ? Characters.slice( KeyPrefix.length ) : Characters;
-        return Body.slice( 0, KeyLength );
+        return Significant( Text );
     }
 
     function FormatKey( Text ) {
-        const Characters = Significant( Text );
-        if ( KeyPrefix.startsWith( Characters ) )
-            return Characters;
-        return [ KeyPrefix, ...KeyBody( Characters ).match( /.{1,5}/g ) ].join( '-' );
+        return Significant( Text );
     }
 
     function CaretIndex( Formatted, Count ) {
@@ -91,9 +85,10 @@ import { CDownload } from './download.js';
     function Render( Formatted ) {
         const Filled = KeyBody( Formatted ).length;
         const Complete = KeyPattern.test( Formatted );
-        Counter.textContent = `${Filled}/${KeyLength}`;
+        // no fixed key length any more: show how much of the line is there
+        Counter.textContent = `${Filled} chars`;
         TypedGhost.textContent = Formatted;
-        RestGhost.textContent = KeyTemplate.slice( Formatted.length );
+        RestGhost.textContent = Formatted.length ? '' : KeyTemplate;
         Form.toggleAttribute( 'data-complete', Complete );
         SubmitButton.disabled = !Complete;
         if ( Dialog.open )
@@ -102,8 +97,8 @@ import { CDownload } from './download.js';
 
     function ApplyValue( Raw, Caret = Raw.length ) {
         const Characters = Significant( Raw );
-        const Prefixed = !KeyPrefix.startsWith( Characters ) && !Characters.startsWith( KeyPrefix );
-        const Before = Significant( Raw.slice( 0, Caret ) ).length + ( Prefixed ? KeyPrefix.length : 0 );
+        const Prefixed = false;
+        const Before = Significant( Raw.slice( 0, Caret ) ).length;
         const Formatted = FormatKey( Raw );
         Input.value = Formatted;
         if ( document.activeElement === Input ) {
@@ -114,7 +109,7 @@ import { CDownload } from './download.js';
     }
 
     function InsertText( Text ) {
-        if ( KeyBody( Text ).length === KeyLength ) {
+        if ( KeyBody( Text ).length >= 8 ) {
             ApplyValue( Text );
             return;
         }
