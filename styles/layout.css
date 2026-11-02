@@ -1,0 +1,67 @@
+.Container {
+    width: min(100% - 2 * var(--PageGutter), var(--ContentWidth));
+    margin-inline: auto;
+}
+
+.Section {
+    position: relative;
+    padding-block: var(--SectionSpace);
+}
+
+.SectionHeader {
+    display: grid;
+    justify-items: center;
+    gap: var(--SpaceBase);
+    max-width: var(--NarrowWidth);
+    margin: 0 auto var(--HeaderGap);
+    text-align: center;
+}
+
+.SectionHeader.AlignStart {
+    justify-items: start;
+    margin-inline: 0;
+    text-align: start;
+}
+
+.Eyebrow {
+    font-size: var(--SizeBody);
+    font-weight: var(--WeightMedium);
+    line-height: var(--LeadingSnug);
+    color: var(--AccentBright);
+}
+
+.SectionTitle {
+    font-size: var(--SizeTitle);
+    font-weight: var(--WeightRegular);
+    line-height: var(--LeadingTight);
+    letter-spacing: var(--TrackingTight);
+    color: var(--InkStrong);
+}
+
+.SectionTitle strong {
+    font-weight: var(--WeightHeavy);
+}
+
+.SectionLead {
+    max-width: 38rem;
+    font-size: var(--SizeLead);
+    line-height: var(--LeadingBody);
+    color: var(--InkMuted);
+}
+
+.LightZone {
+    color: var(--LightInk);
+    background: var(--LightSurface);
+}
+
+.LightZone .Eyebrow {
+    color: var(--LightAccent);
+}
+
+.LightZone .SectionTitle {
+    color: var(--LightInk);
+}
+
+.LightZone .SectionLead {
+    color: var(--LightMuted);
+}

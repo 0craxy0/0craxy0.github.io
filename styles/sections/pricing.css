@@ -1,0 +1,287 @@
+.Pricing {
+    --PlanStagger: 40ms;
+    --RollDuration: 1000ms;
+    --RollStep: 40ms;
+    --PlanSurface: #f6f8fc;
+    --PlanInk: #172638;
+    --PlanMuted: #526177;
+    --PlanLine: #d2dbe7;
+    --PlanEdge: #bac7d7;
+    --PlanAccent: #225da7;
+    --PlanDeep: #174f94;
+    --PlanWash: rgb(23 38 56 / 0.06);
+    --PlanShadow: 0 12px 35px -25px rgb(0 0 0 / 0.27);
+    --LiftShadow: 0 24px 60px -30px rgb(0 0 0 / 0.45);
+}
+
+.PlanGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 26rem);
+    justify-content: center;
+    gap: var(--SpaceLarge);
+}
+
+.PlanCard {
+    --PlanOrder: 0;
+    --PlanDelay: calc(var(--PlanOrder) * var(--PlanStagger));
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    padding: var(--CardPadding);
+    border-color: var(--PlanLine);
+    color: var(--PlanInk);
+    background: var(--PlanSurface);
+    box-shadow: var(--PlanShadow);
+    cursor: pointer;
+    transition:
+        opacity var(--DurationReveal) var(--EaseOut) var(--PlanDelay),
+        translate var(--DurationReveal) var(--EaseOut) var(--PlanDelay),
+        transform var(--DurationBase) var(--EaseOut),
+        border-color var(--DurationBase) var(--EaseOut),
+        box-shadow var(--DurationBase) var(--EaseOut);
+}
+
+.MotionReady .PlanCard:not([data-state="entered"]) {
+    opacity: 0;
+    translate: 0 0.75rem;
+}
+
+.PlanCard :focus-visible {
+    outline-color: var(--PlanAccent);
+}
+
+.PlanHeader {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--SpaceTiny) var(--SpaceSmall);
+}
+
+.PlanName {
+    font-size: var(--SizeHeading);
+    letter-spacing: var(--TrackingSnug);
+    color: var(--PlanInk);
+}
+
+.PlanTag {
+    font-size: var(--SizeMicro);
+    color: var(--PlanMuted);
+}
+
+.PlanPiece {
+    justify-self: center;
+    width: auto;
+    height: clamp(8.5rem, 4.75rem + 6vw, 11rem);
+    margin-block: var(--SpaceBase) var(--SpaceTiny);
+    filter: brightness(0);
+    opacity: 0.8;
+    user-select: none;
+    pointer-events: none;
+}
+
+.PlanCard[data-state="entered"] .PlanPiece {
+    animation: RiseIn var(--DurationReveal) var(--EaseOut) calc(var(--PlanDelay) + 120ms) backwards;
+}
+
+.PlanPrice {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: var(--SpaceTiny);
+}
+
+.PriceAmount {
+    display: inline-flex;
+    align-items: flex-start;
+    font-size: var(--SizeTitle);
+    font-weight: var(--WeightMedium);
+    line-height: 1.15;
+    letter-spacing: var(--TrackingTight);
+    white-space: nowrap;
+    color: var(--PlanInk);
+}
+
+.PriceDigit {
+    display: inline-grid;
+    height: 1lh;
+    overflow-x: visible;
+    overflow-y: clip;
+    mask-image: linear-gradient(transparent, #000 16%, #000 84%, transparent);
+}
+
+.PriceDigit::before {
+    content: attr(data-digit);
+    grid-area: 1 / 1;
+    visibility: hidden;
+}
+
+.DigitReel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-area: 1 / 1;
+    justify-self: center;
+    width: 0;
+    transition: translate var(--RollDuration) var(--EaseOut) calc(var(--PlanDelay) + 120ms + var(--DigitOrder) * var(--RollStep));
+}
+
+.PlanCard[data-state="entered"] .DigitReel {
+    translate: 0 calc(var(--DigitTarget) * -1lh);
+}
+
+.PricePeriod {
+    font-size: var(--SizeCaption);
+    color: var(--PlanMuted);
+}
+
+.PlanRate {
+    margin-top: var(--SpaceMicro);
+    font-size: var(--SizeCaption);
+    color: var(--PlanMuted);
+}
+
+.PlanAction {
+    margin-top: var(--SpaceLarge);
+}
+
+.PlanCard .SecondaryButton {
+    --ButtonInk: var(--PlanInk);
+    --ButtonSurface: transparent;
+    --ButtonBorder: var(--PlanLine);
+    --ButtonShadow: 0 0 0 0 rgb(0 0 0 / 0);
+}
+
+.PlanCard .SecondaryButton:hover {
+    --ButtonSurface: var(--PlanWash);
+    --ButtonBorder: var(--PlanEdge);
+}
+
+.PlanCard .AccentButton {
+    --ButtonBorder: var(--AccentDeep);
+}
+
+.PlanCard .AccentButton:hover {
+    --ButtonSurface: var(--PlanDeep);
+    --ButtonBorder: var(--PlanDeep);
+}
+
+.PlanNote {
+    margin-block: var(--SpaceSmall);
+    font-size: var(--SizeMicro);
+    text-align: center;
+    color: var(--PlanMuted);
+}
+
+.RecommendedPlan {
+    padding: calc(var(--CardPadding) - 1px);
+    border-width: 2px;
+    border-color: var(--PlanAccent);
+}
+
+.RecommendedPlan .PlanPiece {
+    opacity: 0.98;
+}
+
+.RecommendedPlan .PlanNote {
+    color: var(--PlanAccent);
+}
+
+.PlanBadge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    z-index: var(--LayerRaised);
+    display: inline-flex;
+    align-items: center;
+    height: 1.75rem;
+    padding-inline: var(--SpaceSmall);
+    border-radius: var(--RadiusRound);
+    font-size: var(--SizeMicro);
+    font-weight: var(--WeightBold);
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--InkWhite);
+    background: var(--PlanAccent);
+    translate: -50% -50%;
+}
+
+.PricingFooter {
+    display: grid;
+    justify-items: center;
+    gap: var(--SpaceTiny);
+    max-width: var(--NarrowWidth);
+    margin: var(--SpaceLarge) auto 0;
+    text-align: center;
+}
+
+.PlanIncludes {
+    font-size: var(--SizeSmall);
+    color: var(--InkMuted);
+}
+
+.PlanIncludes strong {
+    font-weight: var(--WeightMedium);
+    color: var(--InkStrong);
+}
+
+.PricingNote {
+    font-size: var(--SizeCaption);
+    color: var(--InkSubtle);
+}
+
+@media (min-width: 60rem) {
+    .PlanGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0 var(--GridGap);
+        max-width: 72.5rem;
+        margin-inline: auto;
+    }
+
+    .PlanCard {
+        --PlanOrder: 1;
+        grid-row: span 6;
+        grid-template-rows: subgrid;
+    }
+
+    .RecommendedPlan {
+        --PlanOrder: 0;
+        margin-block: -0.75rem;
+        padding-block: calc(var(--CardPadding) + 0.75rem - 1px);
+    }
+
+    .PricingFooter {
+        margin-top: calc(var(--SpaceLarge) + 0.75rem);
+    }
+}
+
+@media (hover: hover) {
+    .PlanCard:hover {
+        border-color: var(--PlanEdge);
+        box-shadow: var(--LiftShadow);
+    }
+
+    .RecommendedPlan:hover {
+        border-color: var(--PlanDeep);
+    }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .PlanCard:hover {
+        transform: translateY(-0.25rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .MotionReady .PlanCard:not([data-state="entered"]) {
+        translate: none;
+    }
+
+    .PlanCard {
+        transition-property: opacity, border-color, box-shadow;
+    }
+
+    .PlanCard[data-state="entered"] .PlanPiece {
+        animation: none;
+    }
+}

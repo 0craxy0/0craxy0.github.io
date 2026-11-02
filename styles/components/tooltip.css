@@ -1,0 +1,53 @@
+.Tooltip {
+    --TooltipLeft: 0px;
+    --TooltipTop: 0px;
+    --TooltipOrigin: 50%;
+    --TooltipScale: 0.96;
+    position: fixed;
+    top: var(--TooltipTop);
+    left: var(--TooltipLeft);
+    z-index: var(--LayerTooltip);
+    padding: var(--SpaceTiny) var(--SpaceSmall);
+    border: 1px solid var(--BorderDefault);
+    border-radius: var(--RadiusRound);
+    font-size: var(--SizeCaption);
+    font-weight: var(--WeightMedium);
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--InkStrong);
+    background: var(--SurfaceRaised);
+    box-shadow: var(--ShadowSoft), var(--InsetHighlight);
+    pointer-events: none;
+    transform-origin: var(--TooltipOrigin) 0;
+    opacity: 0;
+    visibility: hidden;
+    scale: var(--TooltipScale);
+    transition:
+        opacity var(--DurationInstant) var(--EaseIn),
+        scale var(--DurationFast) var(--EaseIn),
+        visibility var(--DurationFast) var(--EaseIn);
+}
+
+.Tooltip[data-side="top"] {
+    transform-origin: var(--TooltipOrigin) 100%;
+}
+
+.Tooltip[data-side="end"] {
+    transform-origin: 0 50%;
+}
+
+.Tooltip[data-state="visible"] {
+    opacity: 1;
+    visibility: visible;
+    scale: none;
+    transition:
+        opacity var(--DurationFast) var(--EaseOut),
+        scale var(--DurationBase) var(--EaseOut),
+        visibility var(--DurationFast) var(--EaseOut);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .Tooltip {
+        --TooltipScale: 1;
+    }
+}

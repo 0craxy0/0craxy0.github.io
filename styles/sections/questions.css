@@ -1,0 +1,178 @@
+.Questions {
+    --ToggleSize: 1.875rem;
+    --QuestionStep: 40ms;
+    --StickyTop: 7rem;
+    --OpenDuration: 480ms;
+}
+
+.QuestionsLayout {
+    display: grid;
+    align-items: start;
+}
+
+.QuestionsHelp {
+    display: grid;
+    justify-items: start;
+    max-width: 15rem;
+    margin-top: var(--SpaceLarge);
+}
+
+.QuestionsHelp h3 {
+    font-size: var(--SizeHeading);
+    letter-spacing: var(--TrackingSnug);
+    color: var(--InkStrong);
+}
+
+.QuestionsHelp p {
+    margin-top: var(--SpaceSmall);
+    font-size: var(--SizeSmall);
+    color: var(--InkMuted);
+}
+
+.QuestionsHelp .TextButton {
+    gap: var(--SpaceSmall);
+    min-height: var(--ControlSmall);
+    margin-top: var(--SpaceSmall);
+}
+
+.QuestionItem {
+    --QuestionDelay: calc(var(--QuestionOrder, 0) * var(--QuestionStep));
+    display: grid;
+    grid-template-rows: auto 0fr;
+    border-bottom: 1px solid var(--BorderDefault);
+    transition:
+        grid-template-rows var(--OpenDuration) var(--EaseSmooth),
+        opacity var(--DurationReveal) var(--EaseOut) var(--QuestionDelay),
+        translate var(--DurationReveal) var(--EaseOut) var(--QuestionDelay);
+}
+
+.QuestionItem:first-child {
+    border-top: 1px solid var(--BorderDefault);
+}
+
+.MotionReady .QuestionItem {
+    opacity: 0;
+    translate: 0 0.75rem;
+}
+
+.MotionReady [data-revealed] > .QuestionItem {
+    opacity: 1;
+    translate: none;
+}
+
+.QuestionButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--SpaceBase);
+    width: 100%;
+    padding: calc(var(--SpaceBase) + var(--SpaceMicro)) 0.125rem;
+    border-radius: var(--RadiusSmall);
+    font-size: var(--SizeBody);
+    font-weight: var(--WeightMedium);
+    line-height: var(--LeadingBody);
+    text-align: start;
+    color: var(--InkStrong);
+    transition: color var(--DurationBase) var(--EaseOut);
+}
+
+.QuestionButton:focus-visible {
+    outline-offset: 0;
+}
+
+.QuestionToggle {
+    flex-shrink: 0;
+    width: var(--ToggleSize);
+    height: var(--ToggleSize);
+    padding: 0.375rem;
+    border: 1px solid var(--BorderDefault);
+    border-radius: var(--RadiusSmall);
+    background: var(--SurfaceHover);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    transition:
+        rotate var(--OpenDuration) var(--EaseSmooth),
+        border-color var(--DurationBase) var(--EaseOut);
+}
+
+.QuestionAnswer {
+    min-height: 0;
+    overflow: hidden;
+}
+
+.QuestionAnswer p {
+    padding: 0 0.375rem var(--SpaceMedium) 0.125rem;
+    font-size: var(--SizeSmall);
+    color: var(--InkMuted);
+    opacity: 0;
+    translate: 0 -0.25rem;
+    transition:
+        opacity var(--DurationFast) var(--EaseIn),
+        translate var(--DurationFast) var(--EaseIn);
+}
+
+.QuestionItem[data-state="open"] {
+    grid-template-rows: auto 1fr;
+}
+
+.QuestionItem[data-state="open"] .QuestionToggle {
+    rotate: 45deg;
+}
+
+.QuestionItem[data-state="open"] .QuestionAnswer p {
+    opacity: 1;
+    translate: none;
+    transition:
+        opacity var(--DurationBase) var(--EaseOut) var(--DurationInstant),
+        translate var(--OpenDuration) var(--EaseOut) var(--DurationInstant);
+}
+
+@media (hover: hover) {
+    .QuestionButton:hover {
+        color: var(--InkWhite);
+    }
+
+    .QuestionButton:hover .QuestionToggle {
+        border-color: var(--BorderStrong);
+    }
+}
+
+@media (min-width: 48rem) {
+    .QuestionButton {
+        gap: var(--SpaceMedium);
+        padding-block: var(--SpaceMedium);
+        font-size: var(--SizeHeading);
+    }
+
+    .QuestionAnswer p {
+        padding-right: calc(var(--ToggleSize) + var(--SpaceMedium));
+        font-size: var(--SizeBody);
+    }
+}
+
+@media (min-width: 60rem) {
+    .QuestionsLayout {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+        column-gap: var(--SpaceGiant);
+    }
+
+    .QuestionsLayout > .SectionHeader {
+        position: sticky;
+        top: var(--StickyTop);
+        margin-bottom: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .MotionReady .QuestionItem,
+    .QuestionAnswer p {
+        translate: none;
+    }
+
+    .QuestionItem,
+    .QuestionToggle {
+        transition-property: opacity, border-color;
+    }
+}

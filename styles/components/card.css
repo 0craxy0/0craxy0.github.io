@@ -1,0 +1,7 @@
+.Card {
+    position: relative;
+    border: 1px solid var(--BorderSubtle);
+    border-radius: var(--RadiusLarge);
+    background: var(--SurfaceBase);
+    box-shadow: var(--InsetHighlight);
+}

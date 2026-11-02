@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://challenges.cloudflare.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'none'; form-action 'self'">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="description" content="Lucid is a scripting utility for Windows: an editor, script hub, clients and accounts in one workspace.">
+        <title>Lucid</title>
+        <link rel="canonical" href="https://0craxy0.github.io/">
+        <link rel="icon" type="image/png" href="assets/images/brand/favicon.png">
+        <link rel="preload" href="assets/fonts/aspekta-450.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="assets/fonts/aspekta-500.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="assets/images/scenes/day-sky.webp" as="image" fetchpriority="high">
+        <link rel="stylesheet" href="styles/tokens.css">
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/layout.css">
+        <link rel="stylesheet" href="styles/motion.css">
+        <link rel="stylesheet" href="styles/components/buttons.css">
+        <link rel="stylesheet" href="styles/components/card.css">
+        <link rel="stylesheet" href="styles/components/header.css">
+        <link rel="stylesheet" href="styles/components/tooltip.css">
+        <link rel="stylesheet" href="styles/components/dialog.css">
+        <link rel="stylesheet" href="styles/components/footer.css">
+        <link rel="stylesheet" href="styles/sections/hero.css">
+        <link rel="stylesheet" href="styles/sections/gallery.css">
+        <link rel="stylesheet" href="styles/sections/introduction.css">
+        <link rel="stylesheet" href="styles/sections/community.css">
+        <link rel="stylesheet" href="styles/sections/capability.css">
+        <link rel="stylesheet" href="styles/sections/features.css">
+        <link rel="stylesheet" href="styles/sections/performance.css">
+        <link rel="stylesheet" href="styles/sections/personalise.css">
+        <link rel="stylesheet" href="styles/sections/pricing.css">
+        <link rel="stylesheet" href="styles/sections/questions.css">
+        <link rel="stylesheet" href="styles/sections/closing.css">
+        <script src="scripts/boot.js"></script>
+        <script src="scripts/config.js" defer></script>
+        <script src="scripts/core.js" defer></script>
+        <script src="scripts/header.js" defer></script>
+        <script src="scripts/tooltip.js" defer></script>
+        <script src="scripts/hero.js" defer></script>
+        <script src="scripts/gallery.js" defer></script>
+        <script src="scripts/introduction.js" defer></script>
+        <script src="scripts/capability.js" defer></script>
+        <script src="scripts/performance.js" defer></script>
+        <script src="scripts/personalise.js" defer></script>
+        <script src="scripts/pricing.js" defer></script>
+        <script src="scripts/questions.js" defer></script>
+        <script src="scripts/licence.js" type="module"></script>
+    </head>
+    <body>
+        <a class="SkipLink" href="#Content">Skip to content</a>
+        <header class="SiteHeader" data-state="top">
+            <nav class="HeaderBar" aria-label="Main">
+                <a class="HeaderBrand" href="#Top" aria-label="Lucid, back to top">
+                    <img src="assets/images/brand/wordmark.webp" alt="" width="1200" height="469">
+                </a>
+                <ul class="HeaderLinks" id="HeaderMenu">
+                    <li><a class="HeaderLink" href="#Introduction">About</a></li>
+                    <li><a class="HeaderLink" href="#Pricing">Pricing</a></li>
+                    <li><a class="HeaderLink" href="#Questions">FAQ</a></li>
+                    <li><button class="HeaderLink" type="button" aria-disabled="true" aria-describedby="DocsStatus" data-coming-soon>Docs</button></li>
+                    <li>
+                        <a class="HeaderLink" href="https://discord.gg/getlucid" target="_blank" rel="noopener noreferrer">
+                            Discord
+                            <span class="VisuallyHidden">(opens in a new tab)</span>
+                        </a>
+                    </li>
+                </ul>
+                <a class="Button PrimaryButton SmallButton HeaderAction" href="#Download" data-open-download>Get Lucid</a>
+                <button class="MenuToggle" type="button" aria-expanded="false" aria-controls="HeaderMenu" aria-label="Open menu">
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="M2.5 5.5h11"/>
+                        <path d="M2.5 10.5h11"/>
+                    </svg>
+                </button>
+            </nav>
+        </header>
+        <main id="Content">
+            <section class="Hero LightZone" id="Top" aria-labelledby="HeroTitle" data-hero>
+                <div class="HeroScene" aria-hidden="true">
+                    <img class="SceneSky" src="assets/images/scenes/day-sky.webp" alt="" width="1586" height="992" fetchpriority="high" data-parallax="far">
+                    <img class="SceneCorners" src="assets/images/scenes/day-corners.webp" alt="" width="1586" height="992" data-parallax="far">
+                    <svg class="SceneLines" data-parallax="middle">
+                        <g>
+                            <path d="M0-190A450 450 0 0 1 0 710" pathLength="1"/>
+                            <path d="M0-190A450 450 0 0 0 0 710" pathLength="1"/>
+                            <path d="M0-55A315 315 0 0 1 0 575" pathLength="1"/>
+                            <path d="M0-55A315 315 0 0 0 0 575" pathLength="1"/>
+                            <path d="M0 112H1800" pathLength="1"/>
+                            <path d="M0 112H-1800" pathLength="1"/>
+                            <path d="M-544 0V1200" pathLength="1"/>
+                            <path d="M544 0V1200" pathLength="1"/>
+                        </g>
+                    </svg>
+                    <img class="SceneKnight" src="assets/images/pieces/knight.webp" alt="" width="720" height="1289" data-parallax="near">
+                </div>
+                <header class="HeroContent">
+                    <h1 id="HeroTitle">
+                        <img class="HeroWordmark" src="assets/images/brand/wordmark.webp" alt="Lucid" width="1200" height="469">
+                    </h1>
+                    <p class="HeroTagline">A scripting utility for Windows.</p>
+                    <p class="HeroSummary">Editor, script hub, clients and accounts.</p>
+                    <div class="HeroActions">
+                        <a class="Button PrimaryButton LargeButton" href="#Download" data-open-download>Get Lucid</a>
+                        <a class="Button GlassButton LargeButton" href="#Pricing">See pricing</a>
+                    </div>
+                </header>
+                <section class="Gallery" aria-roledescription="carousel" aria-label="Lucid, screen by screen" data-gallery data-playing="false">
+                    <div class="GalleryStage" aria-live="off" data-gallery-stage>
+                        <figure class="GalleryCard" id="GalleryExecution" role="tabpanel" aria-roledescription="slide" aria-labelledby="ScreenExecution" tabindex="0" data-gallery-card>
+                            <img src="assets/images/product/screens/execution.webp" srcset="assets/images/product/screens/execution.webp 1160w, assets/images/product/screens/execution@2x.webp 2320w" sizes="(min-width: 1830px) 1024px, (min-width: 1024px) 56vw, 92vw" alt="Execution: editor, console and selected clients" width="1160" height="680" draggable="false">
+                        </figure>
+                        <figure class="GalleryCard" id="GalleryHome" role="tabpanel" aria-roledescription="slide" aria-labelledby="ScreenHome" aria-hidden="true" data-gallery-card>
+                            <img src="assets/images/product/screens/home.webp" srcset="assets/images/product/screens/home.webp 1160w, assets/images/product/screens/home@2x.webp 2320w" sizes="(min-width: 1830px) 1024px, (min-width: 1024px) 56vw, 92vw" alt="Home: recently played games, activity and saved scripts" width="1160" height="680" draggable="false" loading="lazy">
+                        </figure>
+                        <figure class="GalleryCard" id="GalleryScripts" role="tabpanel" aria-roledescription="slide" aria-labelledby="ScreenScripts" aria-hidden="true" data-gallery-card>
+                            <img src="assets/images/product/screens/scripts.webp" srcset="assets/images/product/screens/scripts.webp 1160w, assets/images/product/screens/scripts@2x.webp 2320w" sizes="(min-width: 1830px) 1024px, (min-width: 1024px) 56vw, 92vw" alt="Scripts: games and a filtered script hub" width="1160" height="680" draggable="false" loading="lazy">
+                        </figure>
+                        <figure class="GalleryCard" id="GalleryAccounts" role="tabpanel" aria-roledescription="slide" aria-labelledby="ScreenAccounts" aria-hidden="true" data-gallery-card>
+                            <img src="assets/images/product/screens/accounts.webp" srcset="assets/images/product/screens/accounts.webp 1160w, assets/images/product/screens/accounts@2x.webp 2320w" sizes="(min-width: 1830px) 1024px, (min-width: 1024px) 56vw, 92vw" alt="Accounts: account manager and joining a game together" width="1160" height="680" draggable="false" loading="lazy">
+                        </figure>
+                        <figure class="GalleryCard" id="GallerySettings" role="tabpanel" aria-roledescription="slide" aria-labelledby="ScreenSettings" aria-hidden="true" data-gallery-card>
+                            <img src="assets/images/product/screens/settings.webp" srcset="assets/images/product/screens/settings.webp 1160w, assets/images/product/screens/settings@2x.webp 2320w" sizes="(min-width: 1830px) 1024px, (min-width: 1024px) 56vw, 92vw" alt="Settings: appearance settings and twelve themes" width="1160" height="680" draggable="false" loading="lazy">
+                        </figure>
+                    </div>
+                    <div class="GalleryControls" role="group" aria-label="Screen controls">
+                        <button class="GalleryButton" type="button" aria-label="Previous screen" data-gallery-previous>
+                            <svg class="GalleryIcon" width="5" height="8" viewBox="0 0 5 8" fill="none" aria-hidden="true"><path d="M4.14701 0.164505C4.25234 0.269974 4.31151 0.412942 4.31151 0.562005C4.31151 0.711068 4.25234 0.854036 4.14701 0.959505L1.35701 3.74951L4.14701 6.53951C4.20227 6.591 4.2466 6.6531 4.27734 6.7221C4.30808 6.7911 4.32462 6.86559 4.32595 6.94111C4.32728 7.01664 4.31339 7.09166 4.2851 7.1617C4.25681 7.23174 4.2147 7.29537 4.16128 7.34878C4.10787 7.4022 4.04424 7.44431 3.9742 7.4726C3.90416 7.50089 3.82914 7.51478 3.75361 7.51345C3.67809 7.51212 3.6036 7.49558 3.5346 7.46484C3.4656 7.4341 3.4035 7.38977 3.35201 7.33451L0.164505 4.14701C0.059167 4.04154 0 3.89857 0 3.74951C0 3.60044 0.059167 3.45747 0.164505 3.35201L3.35201 0.164505C3.45747 0.059167 3.60044 0 3.74951 0C3.89857 0 4.04154 0.059167 4.14701 0.164505Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" fill-opacity="0.6"/></svg>
+                        </button>
+                        <div class="GalleryTabs" role="tablist" aria-label="Lucid screens">
+                            <button class="GalleryTab" id="ScreenExecution" type="button" role="tab" aria-label="Execution" aria-controls="GalleryExecution" aria-selected="true"></button>
+                            <button class="GalleryTab" id="ScreenHome" type="button" role="tab" aria-label="Home" aria-controls="GalleryHome" aria-selected="false" tabindex="-1"></button>
+                            <button class="GalleryTab" id="ScreenScripts" type="button" role="tab" aria-label="Scripts" aria-controls="GalleryScripts" aria-selected="false" tabindex="-1"></button>
+                            <button class="GalleryTab" id="ScreenAccounts" type="button" role="tab" aria-label="Accounts" aria-controls="GalleryAccounts" aria-selected="false" tabindex="-1"></button>
+                            <button class="GalleryTab" id="ScreenSettings" type="button" role="tab" aria-label="Settings" aria-controls="GallerySettings" aria-selected="false" tabindex="-1"></button>
+                        </div>
+                        <button class="GalleryButton" type="button" aria-label="Next screen" data-gallery-next>
+                            <svg class="GalleryIcon" width="5" height="8" viewBox="0 0 5 8" fill="none" aria-hidden="true"><path d="M0.164505 0.164505C0.269974 0.059167 0.412942 0 0.562005 0C0.711068 0 0.854036 0.059167 0.959505 0.164505L4.14701 3.35201C4.25234 3.45747 4.31151 3.60044 4.31151 3.74951C4.31151 3.89857 4.25234 4.04154 4.14701 4.14701L0.959505 7.33451C0.852874 7.43387 0.711839 7.48796 0.566113 7.48539C0.420388 7.48282 0.281349 7.42378 0.178289 7.32072C0.0752292 7.21766 0.0161946 7.07862 0.0136235 6.9329C0.0110523 6.78717 0.0651452 6.64614 0.164505 6.53951L2.9545 3.74951L0.164505 0.959505C0.0591674 0.854036 0 0.711068 0 0.562005C0 0.412942 0.0591674 0.269974 0.164505 0.164505Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" fill-opacity="0.6"/></svg>
+                        </button>
+                    </div>
+                </section>
+            </section>
+            <section class="Introduction LightZone Section" id="Introduction" aria-labelledby="IntroductionTitle" data-statement>
+                <div class="Container IntroductionLayout">
+                    <h2 class="Eyebrow" id="IntroductionTitle" data-reveal="soft">Introducing Lucid</h2>
+                    <p class="Statement" data-reveal><strong>Running a script should be the easy part.</strong> You shouldn’t have to trade performance for compatibility, lose your setup when you change games, or guess what went wrong.</p>
+                    <p class="Statement" data-reveal><strong>Lucid brings it all into one Windows workspace.</strong> A complete, optimized script environment, an editor with useful diagnostics, and a home for every game, script and client. Built to work together from the start.</p>
+                </div>
+            </section>
+            <section class="Community Section" id="Community" aria-labelledby="CommunityTitle">
+                <div class="Container">
+                    <header class="SectionHeader">
+                        <h2 class="SectionTitle" id="CommunityTitle" data-reveal="soft">Built by the community’s <strong>top developers</strong>.</h2>
+                    </header>
+                    <dl class="CommunityStats" data-reveal-group>
+                        <div class="CommunityStat" data-reveal>
+                            <dt>Downloads across previous products</dt>
+                            <dd data-count data-count-duration="1400">2M+</dd>
+                        </div>
+                        <div class="CommunityStat" data-reveal>
+                            <dt>Hours of playtime</dt>
+                            <dd data-count data-count-duration="1800" data-count-delay="120">23M+</dd>
+                        </div>
+                        <div class="CommunityStat" data-reveal>
+                            <dt>Building for the community</dt>
+                            <dd data-count data-count-duration="1600" data-count-delay="240">8 years+</dd>
+                        </div>
+                    </dl>
+                </div>
+            </section>
+            <section class="Capability Section" id="Capability" aria-labelledby="CapabilityTitle">
+                <div class="Container">
+                    <header class="SectionHeader">
+                        <h2 class="SectionTitle" id="CapabilityTitle" data-reveal="soft">Any script that exists,<br> Lucid can run it for you, <strong>undetected</strong>.</h2>
+                    </header>
+                    <figure class="BoardScene" data-board>
+                        <ul class="Board" aria-label="Examples of games, scripts and libraries">
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/scripts/redz.webp" alt="Redz Hub" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/games/blox-fruits.webp" alt="Blox Fruits" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/scripts/infinite-yield.webp" alt="Infinite Yield" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/games/doors.webp" alt="DOORS" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/games/murder-mystery-2.webp" alt="Murder Mystery 2" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/games/fisch.webp" alt="Fisch" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/games/arsenal.webp" alt="Arsenal" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/games/bloxburg.webp" alt="Welcome to Bloxburg" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/games/brookhaven.webp" alt="Brookhaven" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/scripts/dex.svg" alt="Dex Explorer" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/games/adopt-me.webp" alt="Adopt Me!" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/games/bee-swarm.webp" alt="Bee Swarm Simulator" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/games/dead-rails.webp" alt="Dead Rails" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/games/strongest-battlegrounds.webp" alt="The Strongest Battlegrounds" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/games/natural-disaster.webp" alt="Natural Disaster Survival" width="256" height="256" loading="lazy"></li>
+                            <li class="BoardSquare"><img class="BoardTile" src="assets/images/games/tower-of-hell.webp" alt="Tower of Hell" width="256" height="256" loading="lazy"></li>
+                        </ul>
+                        <img class="BoardKnight" src="assets/images/pieces/knight.webp" alt="" width="720" height="1289" loading="lazy">
+                    </figure>
+                    <p class="SectionLead CapabilityLead" data-reveal="soft">Lucid’s environment combines optimized execution, complete libraries and precise error reporting. Scripts load quickly, their libraries behave as expected, and errors point to the script that failed.</p>
+                </div>
+            </section>
+            <section class="Features Section" id="Features" aria-labelledby="FeaturesTitle">
+                <div class="Container">
+                    <header class="SectionHeader">
+                        <h2 class="SectionTitle" id="FeaturesTitle" data-reveal="soft">Write, find and run scripts.</h2>
+                    </header>
+                    <div class="FeatureGrid" data-reveal-group>
+                        <article class="FeatureCard WideFeature Card" data-reveal>
+                            <figure class="FeatureShot">
+                                <img src="assets/images/product/screens/home@2x.webp" srcset="assets/images/product/screens/home.webp 1160w, assets/images/product/screens/home@2x.webp 2320w" sizes="(min-width: 64rem) 46rem, 36rem" alt="Lucid Home showing recently played games, saved script counts and activity." width="2320" height="1360" loading="lazy" decoding="async">
+                                <img class="LightShot" src="assets/images/product/screens/home-light.webp" alt="" width="1638" height="960" loading="lazy" decoding="async">
+                            </figure>
+                            <h3 class="FeatureTitle">Game history and saved scripts.</h3>
+                            <p class="FeatureText">Your game history, saved scripts and execution settings stay together, ready for your next session.</p>
+                        </article>
+                        <article class="FeatureCard Card" data-reveal>
+                            <figure class="FeatureShot">
+                                <img src="assets/images/product/features/clients.webp" alt="Lucid’s client picker with Slayers 2, Murder Mystery 2 and Adopt Me selected." width="936" height="750" loading="lazy" decoding="async">
+                                <img class="LightShot" src="assets/images/product/features/clients-light.webp" alt="" width="1402" height="1122" loading="lazy" decoding="async">
+                            </figure>
+                            <h3 class="FeatureTitle">One script, every client.</h3>
+                            <p class="FeatureText">Tick the clients you want and Execute runs on all of them at once. Unticked ones are left alone.</p>
+                        </article>
+                        <article class="FeatureCard Card" data-reveal>
+                            <figure class="FeatureShot">
+                                <img src="assets/images/product/features/scripts.webp" alt="Lucid’s script hub with verified and keyless filters and execution controls." width="1116" height="716" loading="lazy" decoding="async">
+                                <img class="LightShot" src="assets/images/product/features/scripts-light.webp" alt="" width="1566" height="1005" loading="lazy" decoding="async">
+                            </figure>
+                            <h3 class="FeatureTitle">Search the script hub.</h3>
+                            <p class="FeatureText">Search the hub by game, keep to verified and keyless, and run one in a click.</p>
+                        </article>
+                        <article class="FeatureCard WideFeature Card" data-reveal>
+                            <figure class="FeatureShot">
+                                <img src="assets/images/product/features/console.webp" alt="Lucid Console with client output, warnings, errors and links to the relevant lines." width="1682" height="532" loading="lazy" decoding="async">
+                                <img class="LightShot" src="assets/images/product/features/console-light.webp" alt="" width="2171" height="724" loading="lazy" decoding="async">
+                            </figure>
+                            <h3 class="FeatureTitle">A console that flags trouble.</h3>
+                            <p class="FeatureText">Output from every client in one place. Errors and warnings point straight to the line they came from.</p>
+                        </article>
+                        <article class="FeatureCard LicenceCard Card" id="Licence" data-reveal>
+                            <figure class="FeatureShot">
+                                <img src="assets/images/product/features/licence.webp" alt="Manage licence showing days remaining, licence key, hardware ID resets and renewal controls." width="1076" height="722" loading="lazy" decoding="async">
+                                <img class="LightShot" src="assets/images/product/features/licence-light.webp" alt="" width="1531" height="1027" loading="lazy" decoding="async">
+                            </figure>
+                            <h3 class="FeatureTitle">Your licence, in one place.</h3>
+                            <p class="FeatureText">See the days left, copy your key, reset your HWID or renew, without leaving the app.</p>
+                        </article>
+                        <article class="FeatureCard ToolkitCard Card" data-reveal>
+                            <h3 class="FeatureTitle">Clients</h3>
+                            <ul class="ToolkitList" data-reveal-group>
+                                <li class="ToolkitItem" data-reveal>
+                                    <svg class="ToolkitIcon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4m14-6h4m-4 6h4"/></svg>
+                                    <h4 class="ToolkitName">Attach</h4>
+                                    <p class="ToolkitText">As soon as a game loads, or when you choose.</p>
+                                </li>
+                                <li class="ToolkitItem" data-reveal>
+                                    <svg class="ToolkitIcon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="14" y="3" width="7" height="8" rx="1"/><rect x="3" y="14" width="8" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                                    <h4 class="ToolkitName">Multiple clients</h4>
+                                    <p class="ToolkitText">Every open game window, side by side.</p>
+                                </li>
+                                <li class="ToolkitItem" data-reveal>
+                                    <svg class="ToolkitIcon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                                    <h4 class="ToolkitName">Auto-execute</h4>
+                                    <p class="ToolkitText">Scripts that start the moment you attach.</p>
+                                </li>
+                                <li class="ToolkitItem" data-reveal>
+                                    <svg class="ToolkitIcon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3m6 0h4"/></svg>
+                                    <h4 class="ToolkitName">Console</h4>
+                                    <p class="ToolkitText">Output, warnings and errors from every client.</p>
+                                </li>
+                            </ul>
+                        </article>
+                        <article class="FeatureCard ToolkitCard Card" data-reveal>
+                            <h3 class="FeatureTitle">Scripts</h3>
+                            <ul class="ToolkitList" data-reveal-group>
+                                <li class="ToolkitItem" data-reveal>
+                                    <svg class="ToolkitIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 16-2 3-3 2 2-5m4-1 5-5m-6 6-4-4 3-5h4l3-3 7-1-1 7-3 3v4l-5 3Z"/></svg>
+                                    <h4 class="ToolkitName">Execute</h4>
+                                    <p class="ToolkitText">Run Luau on any attached client.</p>
+                                </li>
+                                <li class="ToolkitItem" data-reveal>
+                                    <svg class="ToolkitIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H5v20h14V7Z"/><path d="M14 2v6h5M8 13h8m-8 4h5"/></svg>
+                                    <h4 class="ToolkitName">Decompiler</h4>
+                                    <p class="ToolkitText">Read the scripts a game is running.</p>
+                                </li>
+                                <li class="ToolkitItem" data-reveal>
+                                    <svg class="ToolkitIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5 5-3 3 3-10 10-4-4Z"/><path d="M9 14c-5-1-1 7-7 7 8 2 10-2 9-5"/></svg>
+                                    <h4 class="ToolkitName">Drawing</h4>
+                                    <p class="ToolkitText">A drawing library for on-screen overlays.</p>
+                                </li>
+                                <li class="ToolkitItem" data-reveal>
+                                    <svg class="ToolkitIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V4h6l3 3h9v13H3Z"/><path d="M3 11h18"/></svg>
+                                    <h4 class="ToolkitName">File access</h4>
+                                    <p class="ToolkitText">Scripts can read and save their own files.</p>
+                                </li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="Performance Section" id="Performance" aria-labelledby="PerformanceTitle">
+                <div class="Container">
+                    <header class="SectionHeader" data-reveal-group>
+                        <h2 class="SectionTitle" id="PerformanceTitle" data-reveal="soft">Execution performance.</h2>
+                        <p class="SectionLead" data-reveal="soft">Compare frame rate and loading times for the same script.</p>
+                    </header>
+                    <div class="BenchmarkGrid" data-reveal-group>
+                        <article class="Benchmark Card" data-reveal="scale" data-benchmark="frames" aria-labelledby="FramesTitle">
+                            <header class="BenchmarkHeader">
+                                <h3 class="BenchmarkTitle" id="FramesTitle">Frame rate under load</h3>
+                                <p class="BenchmarkTag">Higher is better</p>
+                            </header>
+                            <p class="BenchmarkFigure">
+                                <strong class="FigureValue" data-figure-value><span data-figure-low>60</span>–<span data-figure-high>70</span> FPS</strong>
+                                <span class="FigureSubject" data-figure-subject>
+                                    <span class="SubjectName" data-product="lucid">Lucid</span>
+                                </span>
+                            </p>
+                            <figure class="FrameChart" data-frame-chart>
+                                <figcaption class="VisuallyHidden">
+                                    <table>
+                                        <caption>Frame rate while running the same script under load for 60 seconds</caption>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Executor</th>
+                                                <th scope="col">Frames per second</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Lucid</th>
+                                                <td>60 to 70</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Volt</th>
+                                                <td>2 to 10</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Synapse Z</th>
+                                                <td>12 to 24</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Potassium</th>
+                                                <td>16 to 28</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </figcaption>
+                            </figure>
+                            <ul class="ProductLegend" aria-label="Highlight an executor" data-legend>
+                                <li><button class="LegendButton" type="button" data-product="lucid" aria-pressed="true">Lucid</button></li>
+                                <li><button class="LegendButton" type="button" data-product="volt" aria-pressed="false">Volt</button></li>
+                                <li><button class="LegendButton" type="button" data-product="synapse" aria-pressed="false">Synapse Z</button></li>
+                                <li><button class="LegendButton" type="button" data-product="potassium" aria-pressed="false">Potassium</button></li>
+                            </ul>
+                        </article>
+                        <article class="Benchmark Card" data-reveal="scale" data-benchmark="loading" aria-labelledby="LoadingTitle">
+                            <header class="BenchmarkHeader">
+                                <h3 class="BenchmarkTitle" id="LoadingTitle">Time to load the same script</h3>
+                                <p class="BenchmarkTag">Lower is better</p>
+                            </header>
+                            <p class="LoadFigure" data-load-figure>
+                                <span class="FigureLine">
+                                    <strong class="FigureValue"><span data-figure-number>6</span> seconds</strong>
+                                    <span class="SubjectName" data-product="lucid">Lucid</span>
+                                </span>
+                            </p>
+                            <figure class="LoadChart">
+                                <ul class="LoadList" aria-label="Seconds to load the same script" data-load-list>
+                                    <li class="LoadRow" data-product="lucid" data-seconds="6">
+                                        <span class="LoadName">Lucid</span>
+                                        <span class="LoadTrack">
+                                            <span class="LoadBar"></span>
+                                            <span class="LoadValue">6s</span>
+                                        </span>
+                                    </li>
+                                    <li class="LoadRow" data-product="volt" data-seconds="16" tabindex="0">
+                                        <span class="LoadName">Volt</span>
+                                        <span class="LoadTrack">
+                                            <span class="LoadBar"></span>
+                                            <span class="LoadValue">16s</span>
+                                        </span>
+                                    </li>
+                                    <li class="LoadRow" data-product="synapse" data-seconds="20" tabindex="0">
+                                        <span class="LoadName">Synapse Z</span>
+                                        <span class="LoadTrack">
+                                            <span class="LoadBar"></span>
+                                            <span class="LoadValue">20s</span>
+                                        </span>
+                                    </li>
+                                    <li class="LoadRow" data-product="potassium" data-seconds="24" tabindex="0">
+                                        <span class="LoadName">Potassium</span>
+                                        <span class="LoadTrack">
+                                            <span class="LoadBar"></span>
+                                            <span class="LoadValue">24s</span>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ol class="LoadAxis" aria-hidden="true">
+                                    <li>0</li>
+                                    <li>8</li>
+                                    <li>16</li>
+                                    <li>24</li>
+                                    <li>32s</li>
+                                </ol>
+                                <p class="VisuallyHidden" role="status" data-load-status></p>
+                            </figure>
+                            <p class="ChartHint" data-load-hint>Select a bar to compare it with Lucid</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="Personalise Section" id="Personalise" aria-labelledby="PersonaliseTitle">
+                <div class="Container">
+                    <header class="SectionHeader">
+                        <h2 class="SectionTitle" id="PersonaliseTitle" data-reveal="soft">Make Lucid yours.</h2>
+                    </header>
+                    <div class="PersonaliseGrid" data-reveal-group>
+                        <article class="FeatureCard Card" data-reveal>
+                            <div class="FeatureShot ThemeWall" role="img" aria-label="Twelve Lucid themes: Lucid, Midnight, Paper, Graphite, Ember, Arctic, Obsidian, Sakura, Fjord, Lucid Light, Moss and Rosewood." data-theme-wall></div>
+                            <h3 class="FeatureTitle">Twelve themes, tuned to you.</h3>
+                            <p class="FeatureText">Pick a theme, tune the colours and the window glass. Light, dark, and everything in between.</p>
+                        </article>
+                        <article class="FeatureCard Card" data-reveal>
+                            <figure class="FeatureShot AccountsShot">
+                                <img src="assets/images/product/features/accounts.webp" alt="The join-a-game panel with two accounts selected and the same-server setting enabled." width="680" height="734" loading="lazy" decoding="async">
+                                <img class="LightShot" src="assets/images/product/features/accounts-light.webp" alt="" width="1207" height="1303" loading="lazy" decoding="async">
+                            </figure>
+                            <h3 class="FeatureTitle">Every account, one click away.</h3>
+                            <p class="FeatureText">Paste a game ID, pick your accounts, and join the same server together.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="Pricing Section" id="Pricing" aria-labelledby="PricingTitle">
+                <div class="Container">
+                    <header class="SectionHeader">
+                        <h2 class="SectionTitle" id="PricingTitle" data-reveal="soft">Pick your plan.</h2>
+                    </header>
+                    <div class="PlanGrid">
+                        <article class="PlanCard Card" data-plan="weekly" aria-labelledby="WeeklyPlan">
+                            <header class="PlanHeader">
+                                <h3 class="PlanName" id="WeeklyPlan">Weekly</h3>
+                                <p class="PlanTag">7 days</p>
+                            </header>
+                            <img class="PlanPiece" src="assets/images/pieces/pawn.webp" alt="" width="720" height="1428" loading="lazy" decoding="async">
+                            <p class="PlanPrice">
+                                <span class="VisuallyHidden">$5.99 USD per 7 days</span>
+                                <span class="PriceAmount" aria-hidden="true" data-price>$5.99</span>
+                                <span class="PricePeriod" aria-hidden="true">/ 7 days</span>
+                            </p>
+                            <p class="PlanRate">About $0.86 per day</p>
+                            <a class="Button SecondaryButton WideButton PlanAction" href="#Questions" aria-label="Choose Weekly, $5.99 USD for 7 days">Choose Weekly <span aria-hidden="true">↗</span></a>
+                            <p class="PlanNote">Full Lucid access for 7 days.</p>
+                        </article>
+                        <article class="PlanCard RecommendedPlan Card" data-plan="quarterly" aria-labelledby="QuarterlyPlan">
+                            <p class="PlanBadge">Best value, save 33%</p>
+                            <header class="PlanHeader">
+                                <h3 class="PlanName" id="QuarterlyPlan">Quarterly</h3>
+                                <p class="PlanTag">90 days</p>
+                            </header>
+                            <img class="PlanPiece" src="assets/images/pieces/knight.webp" alt="" width="720" height="1289" loading="lazy" decoding="async">
+                            <p class="PlanPrice">
+                                <span class="VisuallyHidden">$39.99 USD per 90 days</span>
+                                <span class="PriceAmount" aria-hidden="true" data-price>$39.99</span>
+                                <span class="PricePeriod" aria-hidden="true">/ 90 days</span>
+                            </p>
+                            <p class="PlanRate">About $0.44 per day</p>
+                            <a class="Button AccentButton WideButton PlanAction" href="#Questions" aria-label="Choose Quarterly, $39.99 USD for 90 days">Choose Quarterly <span aria-hidden="true">↗</span></a>
+                            <p class="PlanNote">Save $19.98 vs. three Monthly plans.</p>
+                        </article>
+                        <article class="PlanCard Card" data-plan="monthly" aria-labelledby="MonthlyPlan">
+                            <header class="PlanHeader">
+                                <h3 class="PlanName" id="MonthlyPlan">Monthly</h3>
+                                <p class="PlanTag">30 days</p>
+                            </header>
+                            <img class="PlanPiece" src="assets/images/pieces/rook.webp" alt="" width="720" height="1421" loading="lazy" decoding="async">
+                            <p class="PlanPrice">
+                                <span class="VisuallyHidden">$19.99 USD per 30 days</span>
+                                <span class="PriceAmount" aria-hidden="true" data-price>$19.99</span>
+                                <span class="PricePeriod" aria-hidden="true">/ 30 days</span>
+                            </p>
+                            <p class="PlanRate">About $0.67 per day</p>
+                            <a class="Button SecondaryButton WideButton PlanAction" href="#Questions" aria-label="Choose Monthly, $19.99 USD for 30 days">Choose Monthly <span aria-hidden="true">↗</span></a>
+                            <p class="PlanNote">Full Lucid access for 30 days.</p>
+                        </article>
+                    </div>
+                    <footer class="PricingFooter" data-reveal="fade">
+                        <p class="PlanIncludes">Every plan includes <strong>the full client</strong>, <strong>2 HWID resets a week</strong> and <strong>every update</strong> while your key is active.</p>
+                        <p class="PricingNote">Prices in USD. Save 33% compares $39.99 for 90 days with three $19.99 Monthly plans.</p>
+                    </footer>
+                </div>
+            </section>
+            <section class="Questions Section" id="Questions" aria-labelledby="QuestionsTitle">
+                <div class="Container QuestionsLayout">
+                    <header class="SectionHeader AlignStart" data-reveal-group>
+                        <h2 class="SectionTitle" id="QuestionsTitle" data-reveal="soft">Questions, answered.</h2>
+                        <aside class="QuestionsHelp" aria-labelledby="HelpTitle" data-reveal>
+                            <h3 id="HelpTitle">Still stuck?</h3>
+                            <p>Ask in the Lucid Discord and someone from the team will help you out.</p>
+                            <a class="TextButton" href="https://discord.gg/getlucid" target="_blank" rel="noopener noreferrer">Ask in Discord <span aria-hidden="true">↗</span><span class="VisuallyHidden">(opens in a new tab)</span></a>
+                        </aside>
+                    </header>
+                    <ul data-accordion data-reveal="fade">
+                        <li class="QuestionItem" data-state="open">
+                            <h3>
+                                <button class="QuestionButton" type="button" id="Question1" aria-expanded="true" aria-controls="Answer1">
+                                    What do I need to run Lucid?
+                                    <svg class="QuestionToggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+                                </button>
+                            </h3>
+                            <div class="QuestionAnswer" id="Answer1" role="region" aria-labelledby="Question1">
+                                <p>A Windows PC. Open your game, open Lucid, and it attaches to the clients that are running.</p>
+                            </div>
+                        </li>
+                        <li class="QuestionItem" data-state="closed">
+                            <h3>
+                                <button class="QuestionButton" type="button" id="Question2" aria-expanded="false" aria-controls="Answer2">
+                                    How does my key get into Lucid?
+                                    <svg class="QuestionToggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+                                </button>
+                            </h3>
+                            <div class="QuestionAnswer" id="Answer2" role="region" aria-labelledby="Question2">
+                                <p>Press Get Lucid, paste your key and download. The app asks for the same key the first time you sign in, then remembers it.</p>
+                            </div>
+                        </li>
+                        <li class="QuestionItem" data-state="closed">
+                            <h3>
+                                <button class="QuestionButton" type="button" id="Question3" aria-expanded="false" aria-controls="Answer3">
+                                    What is an HWID reset?
+                                    <svg class="QuestionToggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+                                </button>
+                            </h3>
+                            <div class="QuestionAnswer" id="Answer3" role="region" aria-labelledby="Question3">
+                                <p>Your key is tied to one PC. If you move to a new one, reset it from Home, under Manage licence. You get two resets a week.</p>
+                            </div>
+                        </li>
+                        <li class="QuestionItem" data-state="closed">
+                            <h3>
+                                <button class="QuestionButton" type="button" id="Question4" aria-expanded="false" aria-controls="Answer4">
+                                    How do I renew my licence?
+                                    <svg class="QuestionToggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+                                </button>
+                            </h3>
+                            <div class="QuestionAnswer" id="Answer4" role="region" aria-labelledby="Question4">
+                                <p>Open Manage licence, paste your new key into the renewal field and select Activate. You can check your remaining days in the same panel.</p>
+                            </div>
+                        </li>
+                        <li class="QuestionItem" data-state="closed">
+                            <h3>
+                                <button class="QuestionButton" type="button" id="Question5" aria-expanded="false" aria-controls="Answer5">
+                                    What happens when the game updates?
+                                    <svg class="QuestionToggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+                                </button>
+                            </h3>
+                            <div class="QuestionAnswer" id="Answer5" role="region" aria-labelledby="Question5">
+                                <p>Lucid checks for updates when it launches, and Home shows whether it works with the build you have before you join a game.</p>
+                            </div>
+                        </li>
+                        <li class="QuestionItem" data-state="closed">
+                            <h3>
+                                <button class="QuestionButton" type="button" id="Question6" aria-expanded="false" aria-controls="Answer6">
+                                    Can one script run on several clients?
+                                    <svg class="QuestionToggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+                                </button>
+                            </h3>
+                            <div class="QuestionAnswer" id="Answer6" role="region" aria-labelledby="Question6">
+                                <p>Yes. Tick the clients you want in the Clients list and Execute runs on every checked one. Unticked clients are left alone.</p>
+                            </div>
+                        </li>
+                        <li class="QuestionItem" data-state="closed">
+                            <h3>
+                                <button class="QuestionButton" type="button" id="Question7" aria-expanded="false" aria-controls="Answer7">
+                                    Where are my accounts kept?
+                                    <svg class="QuestionToggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+                                </button>
+                            </h3>
+                            <div class="QuestionAnswer" id="Answer7" role="region" aria-labelledby="Question7">
+                                <p>Accounts are stored encrypted on your PC. Lucid never uploads your cookies.</p>
+                            </div>
+                        </li>
+                        <li class="QuestionItem" data-state="closed">
+                            <h3>
+                                <button class="QuestionButton" type="button" id="Question8" aria-expanded="false" aria-controls="Answer8">
+                                    Where can I buy a key?
+                                    <svg class="QuestionToggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+                                </button>
+                            </h3>
+                            <div class="QuestionAnswer" id="Answer8" role="region" aria-labelledby="Question8">
+                                <p>Pick a plan on this page, or buy from a verified reseller. Every key works the same way and activates in the app.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="Closing Section" id="Download" aria-labelledby="ClosingTitle">
+                <div class="Container ClosingFrame" data-reveal="scale">
+                    <img class="ClosingSky" src="assets/images/scenes/night-sky.webp" alt="" width="1586" height="992" loading="lazy" decoding="async">
+                    <div class="ClosingContent" data-reveal-group>
+                        <h2 class="ClosingTitle" id="ClosingTitle" data-reveal="soft">Ready when you are.</h2>
+                        <p class="ClosingCopy" data-reveal="soft">Paste your key and download Lucid for Windows.</p>
+                        <div class="ClosingActions" data-reveal>
+                            <a class="Button PrimaryButton LargeButton" href="#Download" data-open-download>Get Lucid</a>
+                            <a class="Button GlassButton LargeButton" href="#Pricing">See pricing</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="SiteFooter">
+            <div class="Container FooterInner" data-reveal="fade">
+                <a class="FooterBrand" href="#Top" aria-label="Lucid, back to top">
+                    <img src="assets/images/brand/wordmark.webp" alt="" width="1200" height="469" loading="lazy" decoding="async">
+                </a>
+                <nav class="FooterNav" aria-label="Footer">
+                    <ul class="FooterLinks">
+                        <li><a class="FooterLink" href="#Features">Features</a></li>
+                        <li><a class="FooterLink" href="#Performance">Performance</a></li>
+                        <li><a class="FooterLink" href="#Pricing">Pricing</a></li>
+                        <li><a class="FooterLink" href="#Questions">FAQ</a></li>
+                        <li><button class="FooterLink" type="button" aria-describedby="DocsStatus" data-coming-soon>Docs</button></li>
+                        <li><a class="FooterLink" href="https://discord.gg/getlucid" target="_blank" rel="noopener noreferrer">Discord <span aria-hidden="true">↗</span><span class="VisuallyHidden">(opens in a new tab)</span></a></li>
+                    </ul>
+                </nav>
+                <p class="FooterNote">© 2026 Lucid</p>
+            </div>
+        </footer>
+        <dialog class="LicenceDialog" id="LicenceDialog" aria-labelledby="LicenceTitle" data-licence-dialog>
+            <button class="DialogClose" type="button" aria-label="Close" data-licence-close>
+                <svg width="8" height="7" viewBox="0 0 8 7" aria-hidden="true"><path d="M0.909096 0.140904C0.809573 0.0481681 0.677941 -0.00231796 0.54193 8.17931e-05C0.405919 0.00248154 0.276149 0.0575798 0.17996 0.153769C0.0837712 0.249958 0.028673 0.379728 0.0262732 0.515738C0.0238735 0.651749 0.0743595 0.783382 0.167096 0.882904L2.7711 3.4869L0.167096 6.0909C0.115515 6.13897 0.0741433 6.19693 0.0454489 6.26133C0.0167545 6.32573 0.00132545 6.39525 8.17057e-05 6.46574C-0.00116204 6.53623 0.011805 6.60625 0.0382097 6.67162C0.0646145 6.73699 0.103916 6.79638 0.153769 6.84623C0.203622 6.89608 0.263006 6.93539 0.328377 6.96179C0.393749 6.98819 0.463769 7.00116 0.534262 6.99992C0.604753 6.99867 0.674273 6.98325 0.738672 6.95455C0.803072 6.92586 0.861032 6.88448 0.909096 6.8329L3.5131 4.2289L6.1171 6.8329C6.16516 6.88448 6.22312 6.92586 6.28752 6.95455C6.35192 6.98325 6.42144 6.99867 6.49193 6.99992C6.56242 7.00116 6.63244 6.98819 6.69781 6.96179C6.76319 6.93539 6.82257 6.89608 6.87242 6.84623C6.92228 6.79638 6.96158 6.73699 6.98798 6.67162C7.01439 6.60625 7.02735 6.53623 7.02611 6.46574C7.02487 6.39525 7.00944 6.32573 6.98074 6.26133C6.95205 6.19693 6.91068 6.13897 6.8591 6.0909L4.2551 3.4869L6.8591 0.882904C6.95183 0.783382 7.00232 0.651749 6.99992 0.515738C6.99752 0.379728 6.94242 0.249958 6.84623 0.153769C6.75004 0.0575798 6.62027 0.00248154 6.48426 8.17931e-05C6.34825 -0.00231796 6.21662 0.0481681 6.1171 0.140904L3.5131 2.7449L0.909096 0.140904Z"/></svg>
+            </button>
+            <section class="LicenceView" data-licence-view="form">
+                <header class="LicenceHeader">
+                    <img class="LicenceMark" src="assets/images/brand/mark.webp" alt="" width="64" height="64">
+                    <h2 class="LicenceTitle" id="LicenceTitle" tabindex="-1">Verify your key <span class="TitleMuted">to download Lucid.</span></h2>
+                </header>
+                <form class="LicenceForm" id="LicenceForm" method="post" action="#LicenceDialog" data-static-hosting novalidate data-licence-form>
+                    <label class="FieldLabel" for="LicenceKey">Licence key</label>
+                    <span class="KeyCount" aria-hidden="true" data-licence-count>0/15</span>
+                    <div class="KeyField" data-licence-field>
+                        <svg class="KeyIcon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="5" cy="8" r="2.75"/><path d="M7.75 8H14M11.5 8v2.25M13.75 8v1.5"/></svg>
+                        <span class="KeyGhost" aria-hidden="true"><span class="GhostTyped" data-licence-typed></span><span data-licence-rest>LUCID-XXXXX-XXXXX-XXXXX</span></span>
+                        <input class="KeyInput" id="LicenceKey" name="key" type="text" placeholder="LUCID-XXXXX-XXXXX-XXXXX" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-describedby="LicenceHint LicenceError" aria-invalid="false" data-licence-input>
+                        <button class="PasteButton" type="button" aria-label="Paste key" data-licence-paste>Paste</button>
+                    </div>
+                    <p class="FieldHint" id="LicenceHint">Keys look like LUCID-XXXXX-XXXXX-XXXXX</p>
+                    <p class="FieldError" id="LicenceError" role="alert" data-licence-error></p>
+                    <div class="LicenceCheck" data-licence-check></div>
+                </form>
+                <div class="LicenceActions">
+                    <button class="Button SecondaryButton" type="button" data-licence-close>Cancel</button>
+                    <button class="Button PrimaryButton SubmitButton" type="submit" form="LicenceForm" disabled data-licence-submit>
+                        <span class="SubmitLabel">Download</span>
+                        <svg class="ButtonSpinner" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" pathLength="1"/></svg>
+                    </button>
+                </div>
+                <footer class="LicenceFooter">Don’t have a key yet? <a class="TextButton" href="#Pricing" data-licence-pricing>See pricing <span aria-hidden="true">&rsaquo;</span></a></footer>
+            </section>
+            <section class="LicenceView SuccessView" data-licence-view="success" hidden>
+                <header class="LicenceHeader">
+                    <svg class="SuccessCheck" viewBox="0 0 64 64" aria-hidden="true">
+                        <circle class="TickRing" cx="32" cy="32" r="30" pathLength="1"/>
+                        <path class="TickMark" d="m21 32.5 7.5 7.5L43 25.5" pathLength="1"/>
+                    </svg>
+                    <h2 class="LicenceTitle" id="SuccessTitle" tabindex="-1">You’re all set.</h2>
+                    <p class="LicenceSummary" id="SuccessMessage" data-licence-message>Your download is starting. Open Lucid.exe to continue.</p>
+                </header>
+                <div class="LicenceActions">
+                    <button class="Button SecondaryButton" type="button" data-licence-again hidden>Download again</button>
+                    <a class="Button SecondaryButton" href="#Pricing" data-licence-pricing>See pricing</a>
+                    <button class="Button PrimaryButton" type="button" data-licence-close>Done</button>
+                </div>
+            </section>
+        </dialog>
+        <div class="Tooltip" id="DocsStatus" role="tooltip" hidden>Coming soon</div>
+    </body>
+</html>

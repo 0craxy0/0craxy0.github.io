@@ -1,0 +1,112 @@
+.Closing {
+    --FrameRatio: 15 / 7;
+    --FrameHeight: 30rem;
+    --FrameFloor: clamp(5rem, 2.5rem + 5vw, 7.5rem);
+}
+
+.ClosingFrame {
+    display: grid;
+    aspect-ratio: var(--FrameRatio);
+    min-height: var(--FrameHeight);
+    overflow: clip;
+    border-radius: var(--RadiusFrame);
+    background: var(--SurfaceBase);
+    box-shadow: var(--ShadowRaised);
+    isolation: isolate;
+}
+
+.ClosingFrame::after {
+    content: "";
+    grid-area: 1 / 1;
+    z-index: 2;
+    border-radius: inherit;
+    box-shadow:
+        inset 0 0 0 1px var(--BorderDefault),
+        inset 0 1px 0 rgb(255 255 255 / 0.1);
+    pointer-events: none;
+}
+
+.ClosingSky {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 0;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: 50% 62%;
+    scale: 1.08;
+    will-change: scale, translate;
+    animation: ClosingDrift 40s var(--EaseSmooth) infinite alternate;
+}
+
+.ClosingContent {
+    grid-area: 1 / 1;
+    z-index: 1;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: var(--SpaceBase);
+    padding: var(--SpaceHuge) var(--CardPadding) var(--FrameFloor);
+    text-align: center;
+    background: linear-gradient(rgb(6 13 30 / 0.34), rgb(6 13 30 / 0.12) 70%);
+}
+
+.ClosingContent > [data-reveal] {
+    --RevealDelay: calc(var(--RevealOrder, 0) * var(--RevealStep) + var(--DurationFast));
+}
+
+.ClosingTitle {
+    font-size: var(--SizeDisplay);
+    font-weight: var(--WeightMedium);
+    line-height: var(--LeadingTight);
+    letter-spacing: var(--TrackingTight);
+    color: var(--SkyInk);
+}
+
+.ClosingCopy {
+    max-width: 30rem;
+    font-size: var(--SizeLead);
+    color: color-mix(in srgb, var(--SkyInk) 80%, transparent);
+}
+
+.ClosingActions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--SpaceSmall);
+    margin-block-start: var(--SpaceBase);
+}
+
+@keyframes ClosingDrift {
+    from {
+        scale: 1.08;
+    }
+
+    to {
+        scale: 1.12;
+    }
+}
+
+@keyframes ClosingParallax {
+    from {
+        translate: 0 -3%;
+    }
+
+    to {
+        translate: 0 3%;
+    }
+}
+
+@supports (animation-timeline: view()) {
+    .ClosingSky {
+        animation:
+            ClosingDrift 40s var(--EaseSmooth) infinite alternate,
+            ClosingParallax linear both;
+        animation-timeline: auto, view();
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ClosingSky {
+        animation: none;
+    }
+}

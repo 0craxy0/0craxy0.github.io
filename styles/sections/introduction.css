@@ -1,0 +1,41 @@
+.Introduction {
+    --WordDim: color-mix(in oklab, var(--LightInk) 16%, var(--LightSurface));
+}
+
+.IntroductionLayout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2.8fr);
+    align-items: baseline;
+    gap: var(--SpaceLarge) var(--SpaceGiant);
+}
+
+.Statement {
+    grid-column: 2;
+    max-width: 52rem;
+    font-size: var(--SizeSubtitle);
+    font-weight: var(--WeightRegular);
+    line-height: calc(var(--LeadingSnug) + 0.1);
+    letter-spacing: var(--TrackingSnug);
+    color: var(--LightMuted);
+}
+
+.Statement strong {
+    font-weight: var(--WeightMedium);
+    color: var(--LightInk);
+}
+
+.StatementWord {
+    --WordProgress: clamp(0, (var(--Reading) - var(--WordIndex)) / 5, 1);
+    color: color-mix(in oklab, currentColor calc(var(--WordProgress) * 100%), var(--WordDim));
+}
+
+@media (width < 56rem) {
+    .IntroductionLayout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--SpaceMedium);
+    }
+
+    .Statement {
+        grid-column: 1;
+    }
+}

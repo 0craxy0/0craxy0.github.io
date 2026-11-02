@@ -1,0 +1,118 @@
+:root {
+    --FontFamily: "Aspekta", "Segoe UI", system-ui, sans-serif;
+    --FontMono: "Cascadia Code", "JetBrains Mono", Consolas, ui-monospace, monospace;
+
+    --PageBackground: #080c13;
+    --SurfaceBase: #0a0e14;
+    --SurfaceRaised: #0e131b;
+    --SurfaceHover: #121925;
+    --SurfaceGlass: rgb(10 14 21 / 0.72);
+    --SurfaceOverlay: rgb(4 7 12 / 0.64);
+
+    --BorderSubtle: rgb(255 255 255 / 0.06);
+    --BorderDefault: rgb(255 255 255 / 0.1);
+    --BorderStrong: rgb(255 255 255 / 0.18);
+
+    --InkStrong: #e6eaf0;
+    --InkMuted: #939cab;
+    --InkSubtle: #646e7d;
+    --InkInverse: #0b1220;
+    --InkWhite: #ffffff;
+
+    --AccentBlue: #4a91df;
+    --AccentBright: #74adeb;
+    --AccentDeep: #245faa;
+    --AccentSoft: rgb(74 145 223 / 0.14);
+
+    --LightSurface: #ffffff;
+    --LightInk: #1f2731;
+    --LightMuted: #6d737c;
+    --LightAccent: #3f78a8;
+    --LightBorder: rgb(16 34 58 / 0.1);
+
+    --SkyInk: #f2f9ff;
+    --SkyGlass: rgb(255 255 255 / 0.16);
+    --SkyBorder: rgb(255 255 255 / 0.34);
+
+    --SuccessGreen: #5fbf8f;
+    --DangerRed: #ef7a7a;
+    --WarningAmber: #e3b363;
+
+    --SeriesLucid: #4a91df;
+    --SeriesVolt: #bd8eae;
+    --SeriesSynapse: #60a990;
+    --SeriesPotassium: #9c8cce;
+
+    --SizeMicro: 0.75rem;
+    --SizeCaption: 0.8125rem;
+    --SizeSmall: 0.875rem;
+    --SizeBody: 1rem;
+    --SizeHeading: 1.125rem;
+    --SizeLead: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+    --SizeSubtitle: clamp(1.375rem, 1.1rem + 0.9vw, 1.75rem);
+    --SizeTitle: clamp(2rem, 1.45rem + 1.8vw, 2.875rem);
+    --SizeDisplay: clamp(2.5rem, 1.6rem + 3vw, 4rem);
+
+    --WeightRegular: 450;
+    --WeightMedium: 500;
+    --WeightBold: 600;
+    --WeightHeavy: 650;
+
+    --LeadingTight: 1.08;
+    --LeadingSnug: 1.25;
+    --LeadingBody: 1.6;
+
+    --TrackingTight: -0.032em;
+    --TrackingSnug: -0.016em;
+    --TrackingWide: 0.08em;
+
+    --SpaceMicro: 0.25rem;
+    --SpaceTiny: 0.5rem;
+    --SpaceSmall: 0.75rem;
+    --SpaceBase: 1rem;
+    --SpaceMedium: 1.5rem;
+    --SpaceLarge: 2rem;
+    --SpaceHuge: 3rem;
+    --SpaceGiant: 4rem;
+
+    --PageGutter: clamp(1rem, 0.4rem + 2.6vw, 2.5rem);
+    --FrameInset: clamp(0.5rem, 0.2rem + 0.8vw, 0.875rem);
+    --ContentWidth: 75rem;
+    --NarrowWidth: 46rem;
+    --SectionSpace: clamp(3.5rem, 2.5rem + 3vw, 6rem);
+    --HeaderGap: clamp(2.25rem, 1.8rem + 1.6vw, 3.5rem);
+    --CardPadding: clamp(1.25rem, 1rem + 0.8vw, 1.75rem);
+    --GridGap: clamp(0.75rem, 0.55rem + 0.6vw, 1.125rem);
+
+    --RadiusSmall: 0.5rem;
+    --RadiusMedium: 0.75rem;
+    --RadiusLarge: 1.25rem;
+    --RadiusFrame: clamp(1rem, 0.6rem + 1vw, 1.5rem);
+    --RadiusRound: 999px;
+
+    --ControlSmall: 2.25rem;
+    --ControlMedium: 2.75rem;
+    --ControlLarge: 3.25rem;
+
+    --ShadowSoft: 0 1px 2px rgb(0 0 0 / 0.18), 0 10px 28px -16px rgb(0 0 0 / 0.38);
+    --ShadowRaised: 0 2px 6px rgb(0 0 0 / 0.2), 0 24px 48px -24px rgb(0 0 0 / 0.5);
+    --ShadowFloating: 0 14px 40px -18px rgb(0 0 0 / 0.55), 0 2px 6px rgb(0 0 0 / 0.22);
+    --InsetHighlight: inset 0 1px 0 rgb(255 255 255 / 0.05);
+
+    --EaseOut: cubic-bezier(0.22, 1, 0.36, 1);
+    --EaseIn: cubic-bezier(0.55, 0, 1, 0.45);
+    --EaseSmooth: cubic-bezier(0.65, 0, 0.35, 1);
+    --EaseSpring: linear(0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721 25.3%, 0.849 31.5%, 0.937 38.1%, 0.968 41.8%, 0.991 45.7%, 1.006 50.1%, 1.015 55%, 1.017 63.9%, 1.001 85.9%, 1);
+
+    --DurationInstant: 100ms;
+    --DurationFast: 180ms;
+    --DurationBase: 300ms;
+    --DurationSlow: 600ms;
+    --DurationReveal: 900ms;
+    --RevealStep: 80ms;
+
+    --LayerRaised: 2;
+    --LayerHeader: 50;
+    --LayerTooltip: 60;
+    --LayerDialog: 100;
+}

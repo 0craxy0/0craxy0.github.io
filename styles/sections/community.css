@@ -1,0 +1,96 @@
+.Community {
+    --SheetRadius: clamp(1.75rem, 0.9rem + 3.4vw, 3.75rem);
+    --SheetRise: 2.5rem;
+    isolation: isolate;
+    background: linear-gradient(var(--LightSurface) calc(var(--SheetRadius) + var(--SheetRise) + 1rem), transparent 0);
+}
+
+.Community::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: var(--SheetRadius) var(--SheetRadius) 0 0;
+    background: var(--PageBackground);
+    box-shadow: 0 -0.75rem 2.5rem -1.5rem rgb(8 12 19 / 0.22);
+}
+
+.CommunityStats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 62rem;
+    margin-inline: auto;
+}
+
+.CommunityStat {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: var(--SpaceSmall);
+    padding: var(--SpaceMedium) var(--SpaceLarge);
+    text-align: center;
+}
+
+.CommunityStat + .CommunityStat::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    left: 0;
+    width: 1px;
+    background: linear-gradient(transparent, var(--BorderStrong) 30%, var(--BorderStrong) 70%, transparent);
+}
+
+.CommunityStat dd {
+    font-size: var(--SizeTitle);
+    font-weight: var(--WeightMedium);
+    line-height: var(--LeadingTight);
+    letter-spacing: var(--TrackingTight);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    color: var(--InkStrong);
+}
+
+.CommunityStat dt {
+    max-width: 15rem;
+    font-size: var(--SizeSmall);
+    line-height: var(--LeadingSnug);
+    color: var(--InkMuted);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+        .Community::before {
+            animation-name: SheetRise;
+            animation-duration: auto;
+            animation-timing-function: var(--EaseSmooth);
+            animation-fill-mode: both;
+            animation-timeline: view();
+            animation-range: cover 0% cover 55vh;
+        }
+    }
+}
+
+@keyframes SheetRise {
+    from {
+        translate: 0 var(--SheetRise);
+    }
+}
+
+@media (width < 40rem) {
+    .CommunityStats {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .CommunityStat {
+        padding-block: var(--SpaceLarge);
+    }
+
+    .CommunityStat + .CommunityStat::before {
+        inset: 0 auto auto 50%;
+        width: min(18rem, 80%);
+        height: 1px;
+        translate: -50% 0;
+        background: linear-gradient(90deg, transparent, var(--BorderStrong) 30%, var(--BorderStrong) 70%, transparent);
+    }
+}

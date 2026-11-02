@@ -1,0 +1,97 @@
+.MotionReady [data-reveal]:not([data-revealed]) {
+    opacity: 0;
+}
+
+.MotionReady [data-reveal][data-revealed] {
+    animation: RevealRise var(--DurationReveal) var(--EaseOut) backwards;
+    animation-delay: var(--RevealDelay, calc(var(--RevealOrder, 0) * var(--RevealStep)));
+}
+
+.MotionReady [data-reveal="soft"][data-revealed] {
+    animation-name: RevealSoft;
+}
+
+.MotionReady [data-reveal="scale"][data-revealed] {
+    animation-name: RevealScale;
+}
+
+.MotionReady [data-reveal="fade"][data-revealed] {
+    animation-name: FadeIn;
+}
+
+.MotionReady [data-reveal="rise"][data-revealed] {
+    animation-name: RevealLift;
+}
+
+@keyframes RevealRise {
+    from {
+        opacity: 0;
+        translate: 0 1.25rem;
+    }
+}
+
+@keyframes RevealSoft {
+    from {
+        opacity: 0;
+        translate: 0 1rem;
+        filter: blur(0.375rem);
+    }
+}
+
+@keyframes RevealScale {
+    from {
+        opacity: 0;
+        translate: 0 0.75rem;
+        scale: 0.975;
+    }
+}
+
+@keyframes RevealLift {
+    from {
+        opacity: 0;
+        translate: 0 2rem;
+    }
+}
+
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes RiseIn {
+    from {
+        opacity: 0;
+        translate: 0 1.25rem;
+    }
+}
+
+@keyframes Pulse {
+    50% {
+        opacity: 0.45;
+    }
+}
+
+@keyframes Spin {
+    to {
+        rotate: 1turn;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .MotionReady [data-reveal][data-revealed] {
+        animation-name: FadeIn;
+        animation-duration: var(--DurationBase);
+        animation-timing-function: var(--EaseOut);
+        animation-delay: 0ms;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 1ms;
+        animation-delay: 0ms;
+        animation-iteration-count: 1;
+        scroll-behavior: auto;
+    }
+}

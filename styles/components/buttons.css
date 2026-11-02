@@ -1,0 +1,154 @@
+.Button {
+    --ButtonHeight: var(--ControlMedium);
+    --ButtonPadding: 1.25rem;
+    --ButtonSize: var(--SizeSmall);
+    --ButtonInk: var(--InkStrong);
+    --ButtonSurface: rgb(255 255 255 / 0.06);
+    --ButtonBorder: var(--BorderDefault);
+    --ButtonShadow: var(--InsetHighlight);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--SpaceTiny);
+    height: var(--ButtonHeight);
+    padding-inline: var(--ButtonPadding);
+    border: 1px solid var(--ButtonBorder);
+    border-radius: var(--RadiusRound);
+    font-size: var(--ButtonSize);
+    font-weight: var(--WeightMedium);
+    line-height: 1;
+    letter-spacing: -0.005em;
+    white-space: nowrap;
+    color: var(--ButtonInk);
+    background: var(--ButtonSurface);
+    box-shadow: var(--ButtonShadow);
+    user-select: none;
+    transition:
+        scale var(--DurationFast) var(--EaseOut),
+        background-color 280ms var(--EaseOut),
+        border-color 280ms var(--EaseOut),
+        color 280ms var(--EaseOut);
+}
+
+.Button > span[aria-hidden="true"] {
+    transition: translate 240ms var(--EaseOut);
+}
+
+.Button:hover > span[aria-hidden="true"] {
+    translate: 0.125rem -0.125rem;
+}
+
+.Button:active {
+    scale: 0.97;
+    transition-duration: var(--DurationInstant);
+}
+
+.Button:disabled,
+.Button[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.55;
+    scale: none;
+}
+
+.SmallButton {
+    --ButtonHeight: var(--ControlSmall);
+    --ButtonPadding: 1rem;
+    --ButtonSize: var(--SizeCaption);
+}
+
+.LargeButton {
+    --ButtonHeight: var(--ControlLarge);
+    --ButtonPadding: 1.75rem;
+    --ButtonSize: 0.9375rem;
+}
+
+.WideButton {
+    width: 100%;
+}
+
+.PrimaryButton {
+    --ButtonInk: var(--InkInverse);
+    --ButtonSurface: var(--InkWhite);
+    --ButtonBorder: transparent;
+    --ButtonShadow: inset 0 -1px 0 rgb(11 18 32 / 0.12);
+}
+
+.PrimaryButton:hover {
+    --ButtonSurface: #e7f0fb;
+}
+
+.PrimaryButton:active {
+    --ButtonSurface: #d9e6f5;
+}
+
+.AccentButton {
+    --ButtonInk: var(--InkWhite);
+    --ButtonSurface: var(--AccentDeep);
+    --ButtonBorder: rgb(116 173 235 / 0.35);
+    --ButtonShadow: inset 0 1px 0 rgb(255 255 255 / 0.16);
+}
+
+.AccentButton:hover {
+    --ButtonSurface: #2b6cc0;
+    --ButtonBorder: rgb(116 173 235 / 0.55);
+}
+
+.AccentButton:active {
+    --ButtonSurface: #1f5293;
+}
+
+.SecondaryButton:hover {
+    --ButtonSurface: rgb(255 255 255 / 0.11);
+    --ButtonBorder: var(--BorderStrong);
+}
+
+.SecondaryButton:active {
+    --ButtonSurface: rgb(255 255 255 / 0.07);
+}
+
+.GlassButton {
+    --ButtonInk: var(--SkyInk);
+    --ButtonSurface: var(--SkyGlass);
+    --ButtonBorder: var(--SkyBorder);
+    --ButtonShadow: inset 0 1px 0 rgb(255 255 255 / 0.3);
+    backdrop-filter: blur(14px) saturate(1.4);
+}
+
+.GlassButton:hover {
+    --ButtonSurface: rgb(255 255 255 / 0.26);
+    --ButtonBorder: rgb(255 255 255 / 0.55);
+}
+
+.GlassButton:active {
+    --ButtonSurface: rgb(255 255 255 / 0.18);
+}
+
+.TextButton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--SpaceTiny);
+    font-size: var(--SizeSmall);
+    font-weight: var(--WeightMedium);
+    color: var(--AccentBright);
+    transition: color 240ms var(--EaseOut);
+}
+
+.TextButton > span[aria-hidden="true"] {
+    transition: translate 240ms var(--EaseOut);
+}
+
+.TextButton:hover {
+    color: var(--InkWhite);
+}
+
+.TextButton:hover > span[aria-hidden="true"] {
+    translate: 0.1875rem 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .Button:hover > span[aria-hidden="true"],
+    .TextButton:hover > span[aria-hidden="true"] {
+        translate: none;
+    }
+}

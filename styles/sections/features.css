@@ -1,0 +1,257 @@
+.Features {
+    --StageHeight: 60cqi;
+}
+
+.FeatureGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--GridGap);
+    container-type: inline-size;
+}
+
+.FeatureCard {
+    --CardSurface: var(--SurfaceBase);
+    --CardLine: var(--BorderSubtle);
+    --CardInk: var(--InkStrong);
+    --CardMuted: var(--InkMuted);
+    --CardSoft: rgb(230 234 240 / 0.06);
+    --CardArt: none;
+    --ShotOpacity: 0;
+    --ShotFade: var(--DurationSlow);
+    --ThemeEase: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --ThemeDelay: 80ms;
+    --RevealDelay: calc(var(--RevealOrder, 0) * 40ms);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: var(--StageHeight) auto 1fr;
+    padding: var(--CardPadding);
+    border-color: var(--CardLine);
+    background-color: var(--CardSurface);
+    container-type: inline-size;
+}
+
+.FeatureCard[data-reveal] {
+    transition:
+        opacity var(--DurationReveal) var(--EaseOut) var(--RevealDelay),
+        translate var(--DurationReveal) var(--EaseOut) var(--RevealDelay),
+        filter 360ms var(--ThemeEase) var(--ThemeDelay),
+        background-color var(--DurationSlow) var(--ThemeEase) var(--ThemeDelay),
+        border-color var(--DurationSlow) var(--ThemeEase) var(--ThemeDelay);
+}
+
+.MotionReady .FeatureCard:not([data-revealed]) {
+    translate: 0 0.75rem;
+}
+
+.FeatureShot {
+    position: relative;
+    display: grid;
+    grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+    align-items: start;
+    margin: calc(-1 * var(--CardPadding)) calc(-1 * var(--CardPadding)) var(--SpaceSmall);
+    padding: var(--CardPadding) var(--CardPadding) 0;
+    overflow: clip;
+    border-radius: calc(var(--RadiusLarge) - 1px) calc(var(--RadiusLarge) - 1px) 0 0;
+    mask-image: linear-gradient(#000 56%, rgb(0 0 0 / 0.74) 72%, rgb(0 0 0 / 0.32) 87%, transparent);
+}
+
+.FeatureShot > img {
+    grid-area: 1 / 1;
+    width: 100%;
+    border-radius: var(--RadiusMedium);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.07), 0 1.5rem 3rem -1.25rem rgb(0 0 0 / 0.85);
+}
+
+.FeatureShot > .LightShot {
+    box-shadow: 0 0 0 1px #dce4ed;
+    opacity: var(--ShotOpacity);
+    transition: opacity var(--ShotFade) var(--ThemeEase) var(--ThemeDelay);
+}
+
+.FeatureTitle {
+    font-size: var(--SizeHeading);
+    letter-spacing: var(--TrackingSnug);
+    color: var(--CardInk);
+}
+
+.FeatureText {
+    max-width: 34rem;
+    margin-top: var(--SpaceTiny);
+    font-size: var(--SizeBody);
+    color: var(--CardMuted);
+}
+
+.FeatureTitle,
+.FeatureText,
+.ToolkitName,
+.ToolkitText {
+    transition: color var(--DurationInstant) var(--EaseOut) var(--ThemeDelay);
+}
+
+.ToolkitCard {
+    grid-template-rows: auto 1fr;
+    row-gap: var(--SpaceBase);
+}
+
+.ToolkitList {
+    display: grid;
+    align-content: space-between;
+    margin-inline: calc(-1 * var(--SpaceSmall));
+}
+
+.ToolkitItem {
+    --ItemDelay: calc(var(--RevealDelay) + 200ms + var(--RevealOrder, 0) * 40ms);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 0.875rem;
+    row-gap: 0.125rem;
+    padding: var(--SpaceTiny) var(--SpaceSmall);
+    border-radius: var(--RadiusMedium);
+}
+
+.ToolkitItem[data-reveal] {
+    transition:
+        opacity var(--DurationReveal) var(--EaseOut) var(--ItemDelay),
+        translate var(--DurationReveal) var(--EaseOut) var(--ItemDelay),
+        background-color var(--DurationFast) var(--EaseOut);
+}
+
+.MotionReady .ToolkitItem:not([data-revealed]) {
+    translate: 0 0.5rem;
+}
+
+.ToolkitIcon {
+    grid-row: span 2;
+    align-self: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0.625rem;
+    border-radius: 0.625rem;
+    background-color: var(--CardSoft);
+    fill: none;
+    stroke: var(--CardInk);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition:
+        background-color var(--DurationSlow) var(--ThemeEase) var(--ThemeDelay),
+        stroke var(--DurationInstant) var(--EaseOut) var(--ThemeDelay);
+}
+
+.ToolkitName {
+    align-self: end;
+    font-size: var(--SizeBody);
+    color: var(--CardInk);
+}
+
+.ToolkitText {
+    font-size: var(--SizeSmall);
+    line-height: 1.5;
+    color: var(--CardMuted);
+}
+
+@container (width < 36rem) {
+    .WideFeature .FeatureShot {
+        padding-right: 0;
+        mask-image:
+            linear-gradient(#000 56%, rgb(0 0 0 / 0.74) 72%, rgb(0 0 0 / 0.32) 87%, transparent),
+            linear-gradient(to right, #000 70%, transparent);
+        mask-composite: intersect;
+    }
+
+    .WideFeature .FeatureShot > img {
+        width: auto;
+        min-width: 36rem;
+        max-width: none;
+        height: 100%;
+        object-fit: cover;
+        object-position: left top;
+    }
+}
+
+@media (width < 40rem) {
+    .WideFeature {
+        --StageHeight: min(60cqi, 13rem);
+    }
+}
+
+@media (40rem <= width < 64rem) {
+    .Features {
+        --StageHeight: 28.5cqi;
+    }
+
+    .FeatureGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .FeatureGrid > :first-child {
+        --StageHeight: 46cqi;
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 64rem) {
+    .Features {
+        --StageHeight: 19cqi;
+    }
+
+    .FeatureGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .WideFeature {
+        grid-column: span 2;
+    }
+
+    .LicenceCard {
+        grid-template-rows: minmax(var(--StageHeight), 1fr) auto auto;
+    }
+
+    .LicenceCard .FeatureShot {
+        container-type: size;
+    }
+
+    .LicenceCard .FeatureShot > img {
+        width: max(100%, 149cqh);
+        max-width: none;
+    }
+}
+
+@media (hover: hover) {
+    .FeatureCard:hover,
+    .FeatureCard:focus-within {
+        --CardSurface: var(--LightSurface);
+        --CardLine: #dce4ed;
+        --CardInk: #202d3b;
+        --CardMuted: #5c6b7d;
+        --CardSoft: #f0f4f8;
+        --CardArt: invert(1);
+        --ShotOpacity: 1;
+        --ShotFade: 60ms;
+        --ThemeDelay: 0ms;
+    }
+
+    .FeatureGrid:has(> :hover) > .FeatureCard:not(:hover) {
+        --ThemeDelay: 0ms;
+        filter: opacity(0.78);
+    }
+
+    .ToolkitItem:hover {
+        background-color: color-mix(in srgb, var(--CardInk) 4%, transparent);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .FeatureCard {
+        --RevealDelay: 0ms;
+    }
+
+    .ToolkitItem {
+        --ItemDelay: 0ms;
+    }
+
+    .MotionReady .FeatureCard:not([data-revealed]),
+    .MotionReady .ToolkitItem:not([data-revealed]) {
+        translate: none;
+    }
+}

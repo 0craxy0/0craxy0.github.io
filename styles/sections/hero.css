@@ -1,0 +1,283 @@
+.Hero {
+    --WordmarkWidth: clamp(15rem, 10rem + 14vw, 25rem);
+    --ContentTop: clamp(5.75rem, 2.5rem + 6svh, 8.5rem);
+    --ContentHeight: calc(var(--ContentTop) + var(--WordmarkWidth) * 0.391 + 12.75rem);
+    --FitWidth: calc((100svh - 2 * var(--FrameInset) - var(--ContentHeight) - 5.5rem) / 0.5862);
+    --CardWidth: min(64rem, 56vw, max(26rem, var(--FitWidth)));
+    --CardHeight: calc(var(--CardWidth) * 0.5862);
+    --SceneHeight: clamp(32rem, 100svh - 2 * var(--FrameInset), 90rem);
+    --SceneFocus: 50% 45%;
+    --SkyTop: #1479e6;
+    --SkyBottom: #e9f4fc;
+    --IceBlue: #c4e4fc;
+    --GuideInk: #d1edff;
+    --HeroPlay: paused;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 1fr auto;
+    padding: var(--FrameInset);
+    overflow-x: clip;
+}
+
+.Hero[data-state="ready"] {
+    --HeroPlay: running;
+}
+
+.HeroScene {
+    display: grid;
+    grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+    grid-row: 1 / -1;
+    grid-column: 1;
+    min-height: var(--SceneHeight);
+    overflow: hidden;
+    border-radius: var(--RadiusFrame);
+    background: linear-gradient(var(--SkyTop), var(--SkyBottom));
+    contain: strict;
+}
+
+.HeroScene::after {
+    content: "";
+    z-index: 1;
+    grid-area: 1 / 1;
+    align-self: end;
+    height: clamp(6rem, 14svh, 11rem);
+    background: linear-gradient(rgb(255 255 255 / 0), rgb(255 255 255 / 0.06) 18%, rgb(255 255 255 / 0.28) 42%, rgb(255 255 255 / 0.68) 68%, rgb(255 255 255 / 0.94) 88%, var(--LightSurface));
+}
+
+.SceneSky,
+.SceneCorners {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--SceneFocus);
+    will-change: transform;
+}
+
+.SceneCorners {
+    mask-image: url("../../assets/images/scenes/corner-mask.svg");
+    mask-size: cover;
+    mask-position: var(--SceneFocus);
+    mask-repeat: no-repeat;
+}
+
+.SceneLines {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    fill: none;
+    stroke: var(--GuideInk);
+    stroke-width: 1;
+    opacity: 0.14;
+    mask-image: linear-gradient(#000 30%, transparent 78%);
+}
+
+.SceneLines g {
+    transform: translateX(50%);
+}
+
+.SceneLines path {
+    stroke-dasharray: 1;
+    vector-effect: non-scaling-stroke;
+}
+
+.SceneKnight {
+    grid-area: 1 / 1;
+    justify-self: end;
+    align-self: start;
+    width: clamp(13rem, 21vw, 25rem);
+    margin: clamp(4.5rem, 2rem + 7svh, 8rem) clamp(1rem, 5vw, 6rem) 0 0;
+    opacity: 0.47;
+    mask-image: linear-gradient(#000 44%, rgb(0 0 0 / 0.7) 62%, rgb(0 0 0 / 0.27) 77%, transparent 93%);
+}
+
+.HeroContent {
+    z-index: 1;
+    display: grid;
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
+    justify-items: center;
+    padding: var(--ContentTop) var(--PageGutter) var(--SpaceLarge);
+    text-align: center;
+    color: var(--SkyInk);
+}
+
+.HeroWordmark {
+    width: var(--WordmarkWidth);
+}
+
+.HeroTagline {
+    margin-top: var(--SpaceBase);
+    font-size: var(--SizeSubtitle);
+    font-weight: var(--WeightMedium);
+    line-height: var(--LeadingSnug);
+    letter-spacing: var(--TrackingTight);
+    text-wrap: balance;
+    color: transparent;
+    background: linear-gradient(var(--SkyInk) 15%, var(--IceBlue));
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.HeroSummary {
+    max-width: 30rem;
+    margin-top: var(--SpaceSmall);
+    font-size: var(--SizeLead);
+    line-height: 1.5;
+    color: color-mix(in srgb, var(--SkyInk) 92%, transparent);
+}
+
+.HeroActions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--SpaceSmall);
+    margin-top: 1.75rem;
+}
+
+@keyframes SceneSettle {
+    from {
+        scale: 1.03;
+    }
+}
+
+@keyframes KnightDrift {
+    from {
+        opacity: 0;
+        translate: 0.75rem 0.5rem;
+    }
+}
+
+@keyframes DrawLine {
+    from {
+        stroke-dashoffset: 1;
+    }
+}
+
+@keyframes HeroRise {
+    from {
+        opacity: 0;
+        translate: 0 0.75rem;
+        filter: blur(0.25rem);
+    }
+}
+
+@keyframes HeroLift {
+    from {
+        opacity: 0;
+        translate: 0 0.5rem;
+    }
+}
+
+.MotionReady .HeroScene {
+    animation: FadeIn 1.4s var(--EaseOut) backwards;
+    animation-play-state: var(--HeroPlay);
+}
+
+.MotionReady .SceneSky,
+.MotionReady .SceneCorners {
+    animation: SceneSettle 1.6s var(--EaseOut) backwards;
+    animation-play-state: var(--HeroPlay);
+}
+
+.MotionReady .SceneKnight {
+    animation: KnightDrift 1.2s var(--EaseOut) 0.15s backwards;
+    animation-play-state: var(--HeroPlay);
+}
+
+.MotionReady .SceneLines path {
+    animation: DrawLine 1.4s var(--EaseSmooth) 0.15s backwards;
+    animation-play-state: var(--HeroPlay);
+}
+
+.MotionReady .SceneLines path:nth-child(n + 3) {
+    animation-delay: 0.3s;
+}
+
+.MotionReady .SceneLines path:nth-child(n + 5) {
+    animation-duration: 1.1s;
+    animation-delay: 0.5s;
+}
+
+.MotionReady .SceneLines path:nth-child(n + 7) {
+    animation-duration: 1.2s;
+    animation-delay: 0.55s;
+}
+
+.MotionReady .HeroWordmark,
+.MotionReady .HeroTagline,
+.MotionReady .HeroSummary {
+    animation: HeroRise 0.9s var(--EaseOut) 0.25s backwards;
+    animation-play-state: var(--HeroPlay);
+}
+
+.MotionReady .HeroTagline {
+    animation-delay: 0.32s;
+}
+
+.MotionReady .HeroSummary {
+    animation-delay: 0.39s;
+}
+
+.MotionReady .HeroActions > .Button {
+    animation: HeroLift 0.8s var(--EaseOut) 0.46s backwards;
+    animation-play-state: var(--HeroPlay);
+}
+
+.MotionReady .HeroActions > :last-child {
+    animation-delay: 0.52s;
+}
+
+@media (aspect-ratio < 1) {
+    .Hero {
+        --SceneFocus: 76% 45%;
+    }
+}
+
+@media (48rem <= width < 64rem) {
+    .Hero {
+        --CardWidth: min(76vw, max(26rem, var(--FitWidth)));
+    }
+
+    .SceneKnight {
+        width: 12rem;
+        margin-right: 1rem;
+    }
+}
+
+@media (width < 48rem) {
+    .Hero {
+        --CardWidth: calc(100vw - 2 * var(--FrameInset) - 2 * var(--PageGutter) - 1rem);
+    }
+
+    .SceneLines g {
+        transform: translateX(50%) scale(0.62);
+    }
+
+    .SceneKnight {
+        width: 9.5rem;
+        margin-right: -1.5rem;
+        opacity: 0.3;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .MotionReady .HeroScene,
+    .MotionReady .SceneKnight,
+    .MotionReady .HeroWordmark,
+    .MotionReady .HeroTagline,
+    .MotionReady .HeroSummary,
+    .MotionReady .HeroActions > .Button {
+        animation-name: FadeIn;
+        animation-duration: var(--DurationSlow);
+        animation-delay: 0ms;
+    }
+
+    .MotionReady .SceneSky,
+    .MotionReady .SceneCorners,
+    .MotionReady .SceneLines path {
+        animation: none;
+    }
+}

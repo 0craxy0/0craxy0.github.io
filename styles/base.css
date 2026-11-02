@@ -1,0 +1,179 @@
+@font-face {
+    font-family: "Aspekta";
+    src: url("../assets/fonts/aspekta-450.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400 450;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Aspekta";
+    src: url("../assets/fonts/aspekta-500.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 451 549;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Aspekta";
+    src: url("../assets/fonts/aspekta-600.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 550 620;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Aspekta";
+    src: url("../assets/fonts/aspekta-650.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 621 900;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: dark;
+    background: var(--PageBackground);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--FontFamily);
+    font-size: var(--SizeBody);
+    font-weight: var(--WeightRegular);
+    line-height: var(--LeadingBody);
+    color: var(--InkStrong);
+    background: var(--PageBackground);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: var(--WeightMedium);
+    line-height: var(--LeadingSnug);
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+img,
+svg,
+video,
+picture {
+    display: block;
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+}
+
+button {
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    touch-action: manipulation;
+}
+
+strong {
+    font-weight: var(--WeightBold);
+}
+
+:focus-visible {
+    outline: 2px solid var(--AccentBright);
+    outline-offset: 3px;
+}
+
+::selection {
+    color: var(--InkWhite);
+    background: rgb(74 145 223 / 0.4);
+}
+
+.VisuallyHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+.SkipLink {
+    position: fixed;
+    top: var(--SpaceBase);
+    left: var(--SpaceBase);
+    z-index: var(--LayerDialog);
+    padding: var(--SpaceSmall) var(--SpaceBase);
+    border-radius: var(--RadiusRound);
+    font-size: var(--SizeSmall);
+    font-weight: var(--WeightMedium);
+    color: var(--InkInverse);
+    background: var(--InkWhite);
+    translate: 0 -200%;
+    transition: translate var(--DurationBase) var(--EaseOut);
+}
+
+.SkipLink:focus-visible {
+    translate: 0 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
